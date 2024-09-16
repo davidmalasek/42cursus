@@ -1,0 +1,49 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/16 15:19:58 by dmalasek          #+#    #+#             */
+/*   Updated: 2024/09/16 16:14:24 by dmalasek         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <string.h>
+
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		if (((char *)s)[i] == (char)c)
+			return ((void *)(&((char *)s)[i]));
+		i++;
+	}
+	return (0);
+}
+
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	const char str[] = "Hello, World!";
+// 	char target = 'W';
+// 	char *result;
+
+// 	result = ft_memchr(str, target, sizeof(str));
+// 	if (result)
+// 		printf("Found '%c' at position %ld\n", target, (long)(result - str));
+// 	else
+// 		printf("Character '%c' not found\n", target);
+
+// 	target = 'z';
+// 	result = ft_memchr(str, target, sizeof(str));
+// 	if (result)
+// 		printf("Found '%c' at position %ld\n", target, (long)(result - str));
+// 	else
+// 		printf("Character '%c' not found\n", target);
+// }
