@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:26:53 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/16 16:28:19 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/19 10:46:12 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #define LIBFT_H
 
 #include <string.h>
+#include <stdlib.h>
 
 void	ft_bzero(void *s, size_t n);
 int	ft_isalnum(int character);
@@ -36,8 +37,8 @@ char	*strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_tolower(char *str);
 char	*ft_toupper(char *str);
+int	ft_atoi(char *str);
 
 #endif
 
 // TODO remove includes all over the places
-// TODO i end up doing strnstr.c
