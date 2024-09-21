@@ -6,11 +6,11 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:07:39 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/09/20 13:07:42 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/09/21 12:32:02 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strdup(char *src)
 {
