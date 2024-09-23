@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 14:35:49 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/23 18:14:35 by dmalasek         ###   ########.fr       */
+/*   Created: 2024/09/23 17:58:21 by dmalasek          #+#    #+#             */
+/*   Updated: 2024/09/23 18:00:36 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strlcpy(char *dest, char *src)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	index;
+	char	minus_sign;
+	char	string;
 
-	index = 0;
-	while (src[index] != '\0')
+	if (n == -2147483648)
 	{
-		dest[index] = src[index];
-		index++;
+		write(fd, "-2147483648", 11);
+		return ;
 	}
-	dest[index] = '\0';
-	return (dest);
+	minus_sign = '-';
+	if (n < 0)
+	{
+		write(fd, &minus_sign, 1);
+		n = -n;
+	}
+	if (n / 10 != 0)
+		ft_putnbr_fd(n / 10, fd);
+	string = (n % 10) + '0';
+	write(fd, &string, 1);
 }

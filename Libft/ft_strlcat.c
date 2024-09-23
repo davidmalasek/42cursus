@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 14:37:21 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/21 12:32:11 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/09/23 18:14:48 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, char *src)
+char	*ft_strlcat(char *dest, char *src)
 {
 	int	i;
 	int	e;

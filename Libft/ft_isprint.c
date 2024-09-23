@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 12:21:38 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/21 12:30:40 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/09/23 18:18:50 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isprint(int character)
 {
-	if (character > 32 && character < 127)
+	if (character >= 32 && character <= 126)
 		return (16384);
 	else
 		return (0);

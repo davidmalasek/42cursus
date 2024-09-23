@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:26:53 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/21 12:50:51 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/09/23 18:15:14 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h> // TODO remove this
 # include <stdlib.h>
 # include <string.h>
+# include <unistd.h>
 
 void	ft_bzero(void *s, size_t n);
 int		ft_strlen(const char *str);
@@ -33,12 +34,26 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
 char	*ft_strchr(const char *s, int c);
 int		ft_strcmp(char *s1, char *s2);
-char	*ft_strcat(char *dest, char *src);
-char	*ft_strcpy(char *dest, char *src);
+char	*ft_strlcat(char *dest, char *src);
+char	*ft_strlcpy(char *dest, char *src);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_tolower(char *str);
 char	*ft_toupper(char *str);
 int		ft_atoi(char *str);
+char	*ft_itoa(int n);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
+void	ft_putstr_fd(char *s, int fd);
+char	**ft_split(char *str, char *charset);
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+int		ft_strncmp(char *s1, char *s2);
+char	*ft_strnstr(const char *big, const char *little, size_t len);
+char	*ft_strtrim(char const *s1, char const *set);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strdup(char *src);
 
 #endif

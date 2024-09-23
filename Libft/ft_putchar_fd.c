@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 14:35:49 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/23 18:14:35 by dmalasek         ###   ########.fr       */
+/*   Created: 2024/09/23 17:50:42 by dmalasek          #+#    #+#             */
+/*   Updated: 2024/09/23 18:04:19 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strlcpy(char *dest, char *src)
+void	ft_putchar_fd(char c, int fd)
 {
-	int	index;
-
-	index = 0;
-	while (src[index] != '\0')
-	{
-		dest[index] = src[index];
-		index++;
-	}
-	dest[index] = '\0';
-	return (dest);
+	write(fd, &c, 1);
 }

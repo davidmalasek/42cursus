@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 10:45:42 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/09/21 12:30:07 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/09/23 15:37:26 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// TODO - here can be only one minus?
 int	ft_atoi(char *str)
 {
 	int	sign;

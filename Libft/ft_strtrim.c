@@ -1,51 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/21 12:54:02 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/09/23 15:36:31 by dmalasek         ###   ########.fr       */
+/*   Created: 2024/09/23 15:38:26 by dmalasek          #+#    #+#             */
+/*   Updated: 2024/09/23 16:24:49 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	get_size_for_alloc(char const *s1, char const *set)
 {
-	int		total_length;
+	int	i;
+	int	size;
+
+	size = 0;
+	i = 0;
+	while (s1[i] != '\0')
+	{
+		if (!ft_strchr(set, s1[i]))
+			size++;
+		i++;
+	}
+	return (size);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
 	char	*final_str;
 	int		i;
 	int		e;
 
-	if (!s1 || !s2)
-		return (NULL);
-	total_length = ft_strlen(s1) + ft_strlen(s2);
-	final_str = malloc((total_length + 1) * sizeof(char));
+	final_str = malloc(get_size_for_alloc(s1, set) * sizeof(char) + 1);
 	if (!final_str)
 		return (NULL);
 	i = 0;
 	e = 0;
 	while (s1[i] != '\0')
-		final_str[e++] = s1[i++];
-	i = 0;
-	while (s2[i] != '\0')
-		final_str[e++] = s2[i++];
+	{
+		if (!ft_strchr(set, s1[i]))
+			final_str[e++] = s1[i];
+		i++;
+	}
 	final_str[e] = '\0';
 	return (final_str);
 }
 
 // int	main(void)
 // {
-// 	char	string1[] = "42";
-// 	char	string2[] = "Prague";
-// 	char	*result;
-
-// 	result = ft_strjoin(string1, string2);
-// 	while (*result)
-// 	{
-// 		printf("Result: %c\n", *result);
-// 		result++;
-// 	}
+// 	char s1[] = "  delete + it- from he  ree  ";
+// 	char set[] = " +-";
+// 	char *result = ft_strtrim(s1, set);
+// 	printf("Result: '%s'\n", result);
 // }

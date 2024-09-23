@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 15:18:48 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/21 12:31:59 by davidmalase      ###   ########.fr       */
+/*   Created: 2024/09/23 17:53:53 by dmalasek          #+#    #+#             */
+/*   Updated: 2024/09/23 17:56:30 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcmp(char *s1, char *s2)
+void	ft_putstr_fd(char *s, int fd)
 {
-	int	index;
-
-	index = 0;
-	while (s1[index] != '\0' || s2[index] != '\0')
-	{
-		if (s1[index] != s2[index])
-		{
-			return (s1[index] - s2[index]);
-		}
-		index++;
-	}
-	return (0);
+	write(fd, s, ft_strlen(s));
 }
