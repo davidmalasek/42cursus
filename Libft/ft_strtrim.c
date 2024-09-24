@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:38:26 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/23 16:24:49 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/24 17:39:35 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	get_size_for_alloc(char const *s1, char const *set)
+// TODO: this one should only check at start and end, redo this.
+
+int	ft_get_size_for_alloc(char const *s1, char const *set)
 {
 	int	i;
 	int	size;
@@ -34,7 +36,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		i;
 	int		e;
 
-	final_str = malloc(get_size_for_alloc(s1, set) * sizeof(char) + 1);
+	final_str = malloc(ft_get_size_for_alloc(s1, set) * sizeof(char) + 1);
 	if (!final_str)
 		return (NULL);
 	i = 0;
@@ -51,7 +53,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 // int	main(void)
 // {
-// 	char s1[] = "  delete + it- from he  ree  ";
+// 	char s1[] = "lorem ipsum dolor sit am";
 // 	char set[] = " +-";
 // 	char *result = ft_strtrim(s1, set);
 // 	printf("Result: '%s'\n", result);

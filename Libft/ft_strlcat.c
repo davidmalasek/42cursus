@@ -3,32 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 14:37:21 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/23 18:14:48 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/24 17:25:27 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strlcat(char *dest, char *src)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	int	i;
-	int	e;
+	size_t	dest_len;
+	size_t	src_len;
+	size_t	i;
+	size_t	j;
 
-	i = 0;
-	e = 0;
-	while (dest[i] != '\0')
+	dest_len = ft_strlen(dest);
+	src_len = ft_strlen(src);
+	if (size <= dest_len)
+		return (size + src_len);
+	i = dest_len;
+	j = 0;
+	while (src[j] != '\0' && i < size - 1)
 	{
+		dest[i] = src[j];
 		i++;
-	}
-	while (src[e] != '\0')
-	{
-		dest[i] = src[e];
-		i++;
-		e++;
+		j++;
 	}
 	dest[i] = '\0';
-	return (dest);
+	return (dest_len + src_len);
 }

@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 14:10:42 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/21 12:31:48 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/09/24 18:54:32 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t	i;
 
-	if (dest < src)
+	if (dest == NULL || src == NULL)
+		return (NULL);
+	if (dest == src || n == 0)
+		return (dest);
+	if ((char *)dest < (char *)src)
 	{
 		i = 0;
 		while (i < n)

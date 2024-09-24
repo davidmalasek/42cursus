@@ -6,26 +6,28 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:13:50 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/21 12:32:28 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/09/24 18:56:59 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *str, int character)
 {
-	char	*last_occurence;
+	const char	*last_occurrence;
 
-	last_occurence = 0;
-	while (*s)
+	if (str == NULL)
+		return (NULL);
+	last_occurrence = NULL;
+	while (*str != '\0')
 	{
-		if (*s == (char)c)
-			last_occurence = (char *)s;
-		s++;
+		if (*str == (char)character)
+			last_occurrence = str;
+		str++;
 	}
-	if (c == '\0')
-		last_occurence = (char *)s;
-	return (last_occurence);
+	if (character == '\0')
+		return ((char *)str);
+	return ((char *)last_occurrence);
 }
 
 // #include <stdio.h>
@@ -41,6 +43,6 @@ char	*ft_strrchr(const char *s, int c)
 // 	character = ' ';
 // 	result = ft_strrchr(string, character);
 // 	result2 = strrchr(string, character);
-// 	printf("Result: %s\n", result);
-// 	printf("Result2: %s\n", result2);
+// 	printf("Result: %str\n", result);
+// 	printf("Result2: %str\n", result2);
 // }

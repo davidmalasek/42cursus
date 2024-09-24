@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:26:53 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/23 18:15:14 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/24 17:56:28 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
 char	*ft_strchr(const char *s, int c);
 int		ft_strcmp(char *s1, char *s2);
-char	*ft_strlcat(char *dest, char *src);
-char	*ft_strlcpy(char *dest, char *src);
+size_t	ft_strlcat(char *dest, const char *src, size_t size);
+size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *s, int c);
-char	*ft_tolower(char *str);
-char	*ft_toupper(char *str);
+int		ft_tolower(int character);
+int		ft_toupper(int character);
 int		ft_atoi(char *str);
 char	*ft_itoa(int n);
 void	ft_putchar_fd(char c, int fd);
@@ -50,7 +50,7 @@ char	**ft_split(char *str, char *charset);
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-int		ft_strncmp(char *s1, char *s2);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);

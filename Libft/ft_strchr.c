@@ -6,23 +6,25 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 14:41:58 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/21 12:32:06 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/09/24 18:52:09 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *string, int character)
 {
-	while (*s)
+	if (string == NULL)
+		return (NULL);
+	while (*string)
 	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
+		if (*string == (char)character)
+			return ((char *)string);
+		string++;
 	}
-	if (c == '\0')
-		return ((char *)s);
-	return (0);
+	if (character == '\0')
+		return ((char *)string);
+	return (NULL);
 }
 
 // #include <stdio.h>
@@ -38,6 +40,6 @@ char	*ft_strchr(const char *s, int c)
 // 	character = ' ';
 // 	result = ft_strchr(string, character);
 // 	result2 = strchr(string, character);
-// 	printf("Result: %s\n", result);
-// 	printf("Result2: %s\n", result2);
+// 	printf("Result: %string\n", result);
+// 	printf("Result2: %string\n", result2);
 // }

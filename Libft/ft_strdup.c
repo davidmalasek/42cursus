@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:07:39 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/09/21 12:32:02 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/09/24 17:36:09 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_strdup(char *src)
 	while (src[length])
 		length++;
 	new_str = malloc(length + 1);
+	if (!new_str)
+		return (NULL);
 	i = 0;
 	while (src[i])
 	{

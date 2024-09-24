@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:28:03 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/23 16:29:18 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/24 17:38:16 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+// TODO: doesnt work
 
 int	is_separator(char character, char *charset)
 {
