@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 12:21:38 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/21 12:30:21 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/09/26 11:33:43 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,3 @@ int	ft_isalnum(int character)
 	else
 		return (0);
 }
-
-// #include <ctype.h>
-// #include <stdio.h>
-
-// int	main(void)
-// {
-// 	int character = '8';
-
-// 	printf("My result: %d\n", ft_isalnum(character));
-// 	printf("isalnum() result: %d\n", isalnum(character));
-// }

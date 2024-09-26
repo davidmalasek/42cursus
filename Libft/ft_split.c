@@ -3,98 +3,82 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:28:03 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/24 17:38:16 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/09/26 11:34:41 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// TODO: doesnt work
-
-int	is_separator(char character, char *charset)
+int	word_count(const char *str, char c)
 {
-	while (*charset)
-	{
-		if (*charset == character)
-			return (1);
-		charset++;
-	}
-	return (0);
-}
-
-int	calculate_array_length(char *str, char *charset)
-{
+	int	count;
 	int	i;
-	int	non_sep_string_count;
+	int	is_in_word;
 
+	count = 0;
 	i = 0;
-	non_sep_string_count = 0;
+	is_in_word = 0;
 	while (str[i] != '\0')
 	{
-		if (is_separator(str[i], charset))
-			i++;
-		else
+		if (str[i] != c && is_in_word == 0)
 		{
-			non_sep_string_count++;
-			while (!is_separator(str[i], charset) && str[i] != '\0')
-				i++;
+			is_in_word = 1;
+			count++;
 		}
-	}
-	return (non_sep_string_count);
-}
-
-char	*get_substring(char *str, int start_index, int end_index)
-{
-	int		i;
-	char	*return_str;
-
-	i = 0;
-	return_str = malloc(end_index - start_index + 1);
-	while (start_index < end_index)
-	{
-		return_str[i] = str[start_index];
-		start_index++;
+		else if (str[i] == c)
+			is_in_word = 0;
 		i++;
 	}
-	return_str[i] = '\0';
-	return (return_str);
+	return (count);
 }
 
-void	add_to_array(char *str, int *start_index, int end_index,
-		char **array_pos)
+char	*extract_word(const char *str, char c)
 {
-	*array_pos = get_substring(str, *start_index, end_index);
-	*start_index = end_index;
-}
+	char	*word;
+	int		len;
+	int		i;
 
-char	**ft_split(char *str, char *charset)
-{
-	int		x;
-	int		y;
-	int		z;
-	char	**array;
-
-	x = 0;
-	y = 0;
-	z = 0;
-	array = malloc((calculate_array_length(str, charset) + 1) * sizeof(char *));
-	while (str[x] != '\0')
+	len = 0;
+	while (str[len] != c && str[len] != '\0')
+		len++;
+	word = (char *)malloc((len + 1) * sizeof(char));
+	if (!word)
+		return (NULL);
+	i = 0;
+	while (i < len)
 	{
-		if (is_separator(str[x], charset))
+		word[i] = str[i];
+		i++;
+	}
+	word[i] = '\0';
+	return (word);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	char	**result;
+	int		i;
+	int		j;
+
+	result = (char **)malloc((word_count(s, c) + 1) * sizeof(char *));
+	if (!result)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] != c)
 		{
-			x++;
-			y++;
+			result[j++] = extract_word(&s[i], c);
+			while (s[i] != c && s[i] != '\0')
+				i++;
 		}
 		else
-		{
-			while (!is_separator(str[x], charset) && str[x] != '\0')
-				x++;
-			add_to_array(str, &y, x, &array[z++]);
-		}
+			i++;
 	}
-	array[z] = NULL;
-	return (array);
+	result[j] = NULL;
+	return (result);
 }

@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 14:41:58 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/26 11:34:52 by dmalasek         ###   ########.fr       */
+/*   Created: 2024/09/26 12:07:30 by dmalasek          #+#    #+#             */
+/*   Updated: 2024/09/26 12:09:23 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *string, int character)
-{
-	unsigned char	unsigned_char;
+// TODO: finish
 
-	unsigned_char = (unsigned char)character;
-	while (*string)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+{
+	t_list new_list;
+
+	if (*lst == NULL || (*f) == NULL)
+		return (NULL);
+	while (lst)
 	{
-		if ((unsigned char)*string == unsigned_char)
-			return ((char *)string);
-		string++;
+		(*f)(lst->content);
 	}
-	if (unsigned_char == '\0')
-		return ((char *)string);
-	return (NULL);
 }

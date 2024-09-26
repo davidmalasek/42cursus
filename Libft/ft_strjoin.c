@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 12:54:02 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/09/23 15:36:31 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/26 11:34:57 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	final_str[e] = '\0';
 	return (final_str);
 }
-
-// int	main(void)
-// {
-// 	char	string1[] = "42";
-// 	char	string2[] = "Prague";
-// 	char	*result;
-
-// 	result = ft_strjoin(string1, string2);
-// 	while (*result)
-// 	{
-// 		printf("Result: %c\n", *result);
-// 		result++;
-// 	}
-// }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:19:58 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/21 12:31:38 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/09/26 11:34:17 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,3 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (0);
 }
-
-// #include <stdio.h>
-
-// int	main(void)
-// {
-// 	const char str[] = "Hello, World!";
-// 	char target = 'W';
-// 	char *result;
-
-// 	result = ft_memchr(str, target, sizeof(str));
-// 	if (result)
-// 		printf("Found '%c' at position %ld\n", target, (long)(result - str));
-// 	else
-// 		printf("Character '%c' not found\n", target);
-
-// 	target = 'z';
-// 	result = ft_memchr(str, target, sizeof(str));
-// 	if (result)
-// 		printf("Found '%c' at position %ld\n", target, (long)(result - str));
-// 	else
-// 		printf("Character '%c' not found\n", target);
-// }

@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:45:43 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/23 17:31:19 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/26 11:34:02 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,3 @@ char	*ft_itoa(int n)
 	final_str[index] = '\0';
 	return (final_str);
 }
-
-// int	main(void)
-// {
-// 	char	*result1;
-// 	char	*result2;
-
-// 	result1 = ft_itoa(2147483647);
-// 	result2 = ft_itoa(-2147483648);
-// 	printf("Res1: %s\n", result1);
-// 	printf("Res2: %s\n", result2);
-// }

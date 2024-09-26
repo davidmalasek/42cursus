@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 13:11:19 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/21 12:31:55 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/09/26 11:34:34 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,3 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
-
-// #include <stdio.h>
-
-// int	main(void)
-// {
-// 	char str[] = "Hello, World! This is a test string.";
-
-// 	printf("Before ft_memset: %s\n", str);
-
-// 	ft_memset(str, '-', 5);
-
-// 	printf("After ft_memset: %s\n", str);
-// }
