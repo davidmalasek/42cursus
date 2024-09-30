@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:19:58 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/26 11:34:17 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:20:21 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_memchr
+** Locates the first occurrence of a byte in a memory block
+*/
 
 #include "libft.h"
 

@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 17:47:02 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/23 17:50:16 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:26:00 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_striteri
+** Applies a function to each character of a string, passing its index
+*/
 
 #include "libft.h"
 

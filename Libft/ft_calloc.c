@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 12:49:47 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/09/26 11:33:38 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:16:03 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_calloc
+** Allocates memory for an array and initializes it to zero
+*/
 
 #include "libft.h"
 

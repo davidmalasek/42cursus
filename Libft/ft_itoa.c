@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:45:43 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/26 11:34:02 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:17:37 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_itoa
+** Converts an integer to a null-terminated string
+*/
 
 #include "libft.h"
 

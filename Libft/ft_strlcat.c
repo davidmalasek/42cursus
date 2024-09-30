@@ -3,12 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 14:37:21 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/24 17:25:27 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/09/30 16:42:58 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_strlcat
+** Appends a string to another string with
+** a size limit and returns the total length
+*/
 
 #include "libft.h"
 

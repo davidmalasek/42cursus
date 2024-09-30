@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 17:58:21 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/23 18:00:36 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 17:26:21 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_putnbr_fd
+** Outputs an integer to the given file descriptor
+*/
 
 #include "libft.h"
 

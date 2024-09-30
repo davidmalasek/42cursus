@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 13:11:19 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/26 11:34:34 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:21:23 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_memset
+** Fills a block of memory with a specified byte
+*/
 
 #include "libft.h"
 

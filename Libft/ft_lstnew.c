@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 11:38:49 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/26 11:42:24 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:19:54 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_lstnew
+** Allocates and initializes a new node for a linked list
+*/
 
 #include "libft.h"
 

@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 12:21:38 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/26 11:33:46 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:16:28 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_isalpha
+** Checks if the character is an alphabetic letter
+*/
 
 #include "libft.h"
 

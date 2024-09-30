@@ -6,9 +6,15 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:15:29 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/26 11:35:11 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 17:23:54 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_strnstr
+** Locates the first occurrence of a substring (l - little)
+** in a string (b - big), searching up to a specified length
+*/
 
 #include "libft.h"
 

@@ -3,12 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 14:38:32 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/24 17:55:28 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/09/30 16:28:56 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_tolower
+** Converts an uppercase letter to its lowercase equivalent
+*/
 
 #include "libft.h"
 

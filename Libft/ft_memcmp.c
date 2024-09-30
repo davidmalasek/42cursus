@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:48:04 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/26 11:34:21 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:20:35 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_memcmp
+** Compares two memory blocks byte by byte
+*/
 
 #include "libft.h"
 

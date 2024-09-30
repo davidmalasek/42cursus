@@ -3,12 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:07:39 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/09/24 17:36:09 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/09/30 17:13:07 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_strdup
+** Duplicates a string by allocating memory and copying the content
+*/
 
 #include "libft.h"
 

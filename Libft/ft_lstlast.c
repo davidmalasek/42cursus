@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 11:51:06 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/26 11:57:08 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:42:15 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_lstlast
+** Returns the last element of a linked list
+*/
 
 #include "libft.h"
 

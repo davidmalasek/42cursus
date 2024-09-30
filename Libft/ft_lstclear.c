@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 12:01:22 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/26 12:04:18 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:18:28 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_lstclear
+** Deletes and frees all elements of a linked list
+*/
 
 #include "libft.h"
 

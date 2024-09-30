@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 17:53:53 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/23 17:56:30 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:24:05 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_putstr_fd
+** Outputs a string to the given file descriptor
+*/
 
 #include "libft.h"
 

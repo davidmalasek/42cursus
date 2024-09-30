@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:28:03 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/26 11:34:41 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:24:39 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_split
+** Splits a string into an array of words based on a given delimiter
+*/
 
 #include "libft.h"
 

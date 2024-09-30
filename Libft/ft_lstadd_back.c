@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 11:53:36 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/26 11:57:04 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:17:55 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_lstadd_back
+** Adds a new element to the end of a linked list
+*/
 
 #include "libft.h"
 

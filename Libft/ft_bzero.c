@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 13:26:15 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/26 11:33:34 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:15:49 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_bzero
+** Sets a block of memory to zero
+*/
 
 #include "libft.h"
 

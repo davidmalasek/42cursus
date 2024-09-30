@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 17:32:57 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/26 11:35:05 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:27:17 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_strmapi
+** Applies a function to each character of a string and returns a new string
+*/
 
 #include "libft.h"
 

@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 10:45:42 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/09/26 11:07:03 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:15:33 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_atoi
+** Converts a string to an integer
+*/
 
 #include "libft.h"
 

@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 14:04:32 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/26 11:34:26 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:20:49 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_memcpy
+** Copies a memory block from source to destination
+*/
 
 #include "libft.h"
 

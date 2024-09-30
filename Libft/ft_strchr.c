@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 14:41:58 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/26 11:34:52 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 17:26:08 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_strchr
+** Locates the first occurrence of a character in a string
+*/
 
 #include "libft.h"
 

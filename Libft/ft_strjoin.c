@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 12:54:02 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/09/26 11:34:57 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:26:13 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_strjoin
+** Concatenates two strings into a new dynamically allocated string
+*/
 
 #include "libft.h"
 

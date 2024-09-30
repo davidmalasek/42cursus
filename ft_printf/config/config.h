@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   config.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/26 11:48:32 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/30 16:20:06 by dmalasek         ###   ########.fr       */
+/*   Created: 2024/09/30 17:49:33 by dmalasek          #+#    #+#             */
+/*   Updated: 2024/09/30 18:12:33 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-** ft_lstsize
-** Returns the number of elements in a linked list
-*/
+#ifndef CONFIG_H
+# define CONFIG_H
 
-#include "libft.h"
+# include "../libft/libft.h"
+# include <stdarg.h>
+# include <stdio.h> // TODO delete this one
 
-int	ft_lstsize(t_list *lst)
-{
-	int	count;
-
-	count = 0;
-	while (lst != NULL)
-	{
-		count++;
-		lst = lst->next;
-	}
-	return (count);
-}
+#endif

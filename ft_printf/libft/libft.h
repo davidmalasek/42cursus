@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:26:53 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/30 17:51:11 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 15:17:28 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 # define LIBFT_H
 
+# include <stdio.h> // TODO remove this
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>

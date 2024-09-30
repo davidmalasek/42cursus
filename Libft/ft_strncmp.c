@@ -3,12 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:18:48 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/24 17:33:12 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/09/30 16:27:32 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_strncmp
+** Compares two strings up to a specified number of characters
+*/
 
 #include "libft.h"
 

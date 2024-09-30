@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 12:21:38 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/26 11:33:43 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:16:17 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_isalnum
+** Checks if the character is alphanumeric
+*/
 
 #include "libft.h"
 

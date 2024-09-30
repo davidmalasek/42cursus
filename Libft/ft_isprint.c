@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 12:21:38 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/26 11:33:56 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:17:15 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_isprint
+** Checks if the character is printable
+*/
 
 #include "libft.h"
 

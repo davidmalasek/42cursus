@@ -6,9 +6,15 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:09:49 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/09/26 11:35:22 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:28:43 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_substr
+** Allocates and returns a substring from a given string,
+** starting at a specified index
+*/
 
 #include "libft.h"
 

@@ -6,9 +6,14 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 11:43:00 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/26 11:48:06 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:18:11 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ft_lstadd_front
+** Adds a new element to the beginning of a linked list
+*/
 
 #include "libft.h"
 
