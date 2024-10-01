@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 12:54:02 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/09/30 16:26:13 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/10/01 14:08:17 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		total_length;
+	size_t	total_length;
 	char	*final_str;
 	int		i;
 	int		e;

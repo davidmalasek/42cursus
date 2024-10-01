@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:26:53 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/30 17:51:11 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/10/01 14:17:46 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_list
 }					t_list;
 
 void				ft_bzero(void *s, size_t n);
-int					ft_strlen(const char *str);
+size_t				ft_strlen(const char *str);
 void				*ft_calloc(size_t count, size_t size);
 int					ft_isalnum(int character);
 int					ft_isalpha(int character);
@@ -61,7 +61,7 @@ char				*ft_strnstr(const char *big, const char *little,
 						size_t len);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
-char				*ft_strdup(char *src);
+char				*ft_strdup(const char *src);
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new);
 int					ft_lstsize(t_list *lst);
