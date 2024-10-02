@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   config.h                                           :+:      :+:    :+:   */
+/*   print_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 17:49:33 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/10/01 13:50:50 by dmalasek         ###   ########.fr       */
+/*   Created: 2024/10/02 19:41:08 by davidmalase       #+#    #+#             */
+/*   Updated: 2024/10/02 20:23:10 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONFIG_H
-# define CONFIG_H
+#include "config.h"
 
-# include <stdarg.h>
-# include <stdio.h> // TODO delete this one
+void	print_str(va_list args)
+{
+	int		i;
+	char	*str;
 
-void	ft_putchar_fd(char c, int fd);
-
-#endif
+	i = 0;
+	str = va_arg(args, char *);
+	ft_putstr_fd(str, 1);
+}

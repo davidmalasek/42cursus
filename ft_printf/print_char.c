@@ -1,11 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   signed_decimal_int.c                               :+:      :+:    :+:   */
+/*   print_char.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 18:07:32 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/30 18:18:02 by dmalasek         ###   ########.fr       */
+/*   Created: 2024/10/02 20:23:55 by davidmalase       #+#    #+#             */
+/*   Updated: 2024/10/02 20:25:44 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "config.h"
+
+void	print_char(va_list args)
+{
+	int	character;
+
+	character = va_arg(args, int);
+	ft_putchar_fd(character, 1);
+}
