@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   print_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 19:41:08 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/10/02 20:23:10 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/10/03 10:53:06 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "config.h"
+#include "ft_printf.h"
 
-void	print_str(va_list args)
+void	print_str(va_list args, int *count)
 {
 	int		i;
 	char	*str;
 
 	i = 0;
 	str = va_arg(args, char *);
-	ft_putstr_fd(str, 1);
+	ft_putstr_fd(str, 1, count);
 }

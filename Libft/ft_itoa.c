@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:45:43 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/30 16:17:37 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/10/03 10:17:06 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	count_digits(int n)
 		digits++;
 	}
 	return (digits);
-	return (digits + 1);
 }
 
 void	ft_putnbr(int nb, char *str, int *index)
