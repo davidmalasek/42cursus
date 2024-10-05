@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:50:04 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/10/03 10:53:06 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/10/05 12:31:29 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,18 @@ void	ft_putnbr_fd(int n, int fd, int *count)
 	write(fd, &string, 1);
 	(*count)++;
 }
+
+void	ft_putunbr_fd(unsigned int n, int fd, int *count)
+{
+	char	string;
+
+	if (n / 10 != 0)
+		ft_putunbr_fd(n / 10, fd, count);
+	string = (n % 10) + '0';
+	write(fd, &string, 1);
+	(*count)++;
+}
+
 size_t	ft_strlen(const char *str)
 {
 	int	length;

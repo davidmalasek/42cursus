@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   print_uhex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 09:35:42 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/10/03 11:34:27 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/10/05 12:11:37 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_uhex(va_list args, int *count)
+void	print_uhex(va_list *args, int *count)
 {
 	int				i;
 	unsigned int	unsigned_int;
 	char			buffer[8];
 
 	i = 0;
-	unsigned_int = va_arg(args, unsigned int);
+	unsigned_int = va_arg(*args, unsigned int);
 	if (unsigned_int == 0)
 	{
 		ft_putchar_fd('0', 1, count);
