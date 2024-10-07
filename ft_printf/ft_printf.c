@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 11:25:00 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/10/05 12:37:19 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/10/07 14:58:34 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_ptadd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 20:26:28 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/10/05 12:11:02 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/10/07 15:03:45 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	print_ptadd(va_list *args, int *count)
 	pointer_address = (unsigned long)va_arg(*args, void *);
 	if (pointer_address == 0)
 	{
-		ft_putstr_fd("0x0", 1, count);
+		ft_putstr_fd("(nil)", 1, count);
 		return ;
 	}
 	else

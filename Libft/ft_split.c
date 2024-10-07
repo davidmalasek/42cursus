@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:28:03 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/09/30 16:24:39 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/10/07 16:26:38 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,13 @@ char	*extract_word(const char *str, char c)
 	return (word);
 }
 
+void	free_result(char **result, int j)
+{
+	while (j > 0)
+		free(result[--j]);
+	free(result);
+}
+
 char	**ft_split(const char *s, char c)
 {
 	char	**result;
@@ -73,12 +80,15 @@ char	**ft_split(const char *s, char c)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (s[i] != '\0')
+	while (s[i])
 	{
 		if (s[i] != c)
 		{
-			result[j++] = extract_word(&s[i], c);
-			while (s[i] != c && s[i] != '\0')
+			result[j] = extract_word(&s[i], c);
+			if (!result[j])
+				return (free_result(result, j), NULL);
+			j++;
+			while (s[i] && s[i] != c)
 				i++;
 		}
 		else
