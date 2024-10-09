@@ -3,42 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 12:47:11 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/10/07 20:29:32 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/10/09 14:15:01 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*extract_line(char *buffer, int end)
-{
-	char	*line;
-	int		i;
-
-	line = malloc(end + 2);
-	if (!line)
-		return (NULL);
-	i = 0;
-	while (i <= end)
-	{
-		line[i] = buffer[i];
-		i++;
-	}
-	line[i] = '\0';
-	return (line);
-}
-
 char	*get_next_line(int fd)
 {
 	int			bytes_read;
-	static char	*buffer[BUFFER_SIZE];
+	static char	buffer[BUFFER_SIZE];
 	int			i;
+	char		*newline;
 
 	i = 0;
+	newline = find_newline(buffer);
+	if (newline != NULL)
+		return (extract_line(buffer, newline - buffer)); // Line up to '\n'
 	bytes_read = read(fd, buffer, BUFFER_SIZE);
-	if (bytes_read == -1)
+	if (bytes_read <= 0)
 		return (NULL);
 	buffer[bytes_read] = '\0';
 	while (buffer[i] != '\0')
@@ -52,5 +38,5 @@ char	*get_next_line(int fd)
 
 int	main(void)
 {
-	get_next_line(0);
+	printf("%s", get_next_line(0));
 }

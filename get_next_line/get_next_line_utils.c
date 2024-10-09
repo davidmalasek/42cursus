@@ -3,39 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 12:47:44 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/10/07 16:52:17 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/10/09 14:13:53 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *str)
+char	*find_newline(char *buffer)
 {
-	int	length;
+	int	i;
 
-	length = 0;
-	while (str[length] != '\0')
-		length++;
-	return (length);
+	i = 0;
+	while (buffer[i])
+	{
+		if (buffer[i] == '\n')
+			return (&buffer[i]);
+	}
+	return (NULL);
 }
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+char	*extract_line(char *buffer, int end)
 {
-	size_t	src_len;
-	size_t	i;
+	char *line;
+	int i;
 
-	src_len = ft_strlen(src);
-	if (size == 0)
-		return (src_len);
+	line = malloc(end + 2);
+	if (!line)
+		return (NULL);
 	i = 0;
-	while (i < (size - 1) && src[i] != '\0')
+	while (i <= end)
 	{
-		dest[i] = src[i];
+		line[i] = buffer[i];
 		i++;
 	}
-	dest[i] = '\0';
-	return (src_len);
+	line[i] = '\0';
+	return (line);
 }
