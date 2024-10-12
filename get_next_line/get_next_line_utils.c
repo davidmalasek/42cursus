@@ -3,52 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 12:47:44 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/10/10 17:58:29 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/10/12 17:15:14 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-char	*ft_strchr(const char *string, int character)
-{
-	unsigned char	unsigned_char;
-
-	unsigned_char = (unsigned char)character;
-	while (*string)
-	{
-		if ((unsigned char)*string == unsigned_char)
-			return ((char *)string);
-		string++;
-	}
-	if (unsigned_char == '\0')
-		return ((char *)string);
-	return (NULL);
-}
-
-char	*ft_strdup(const char *src)
-{
-	int		length;
-	int		i;
-	char	*new_str;
-
-	length = 0;
-	while (src[length])
-		length++;
-	new_str = malloc(length + 1);
-	if (!new_str)
-		return (NULL);
-	i = 0;
-	while (src[i])
-	{
-		new_str[i] = src[i];
-		i++;
-	}
-	new_str[i] = '\0';
-	return (new_str);
-}
 
 size_t	ft_strlen(const char *str)
 {
@@ -109,26 +71,43 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (new_substr);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	size_t	total_length;
-	char	*final_str;
-	int		i;
-	int		e;
+	size_t	src_len;
+	size_t	i;
 
-	if (!s1 || !s2)
-		return (NULL);
-	total_length = ft_strlen(s1) + ft_strlen(s2);
-	final_str = malloc((total_length + 1) * sizeof(char));
-	if (!final_str)
-		return (NULL);
+	src_len = ft_strlen(src);
+	if (size == 0)
+		return (src_len);
 	i = 0;
-	e = 0;
-	while (s1[i] != '\0')
-		final_str[e++] = s1[i++];
-	i = 0;
-	while (s2[i] != '\0')
-		final_str[e++] = s2[i++];
-	final_str[e] = '\0';
-	return (final_str);
+	while (i < (size - 1) && src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (src_len);
+}
+
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
+{
+	size_t	dest_len;
+	size_t	src_len;
+	size_t	i;
+	size_t	j;
+
+	dest_len = ft_strlen(dest);
+	src_len = ft_strlen(src);
+	if (size <= dest_len)
+		return (size + src_len);
+	i = dest_len;
+	j = 0;
+	while (src[j] != '\0' && i < size - 1)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+	dest[i] = '\0';
+	return (dest_len + src_len);
 }
