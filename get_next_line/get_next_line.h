@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 12:47:57 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/10/12 17:15:19 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/10/14 16:27:11 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 5
 # endif
 
 # include <fcntl.h> // TODO: delete this one as well
@@ -23,9 +23,9 @@
 # include <unistd.h>
 
 char	*get_next_line(int fd);
-int		get_newline_index(char *buffer);
 
 // Utils
+
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *str);
 void	*ft_calloc(size_t count, size_t size);
