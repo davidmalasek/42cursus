@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 12:47:11 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/10/14 18:05:59 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/10/15 23:45:54 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,36 +26,74 @@ int	get_newline(char *buffer)
 	return (-1);
 }
 
-char	*append_to_stash(char *stash, char *buffer)
+void	append_to_stash(char **stash, char *buffer)
 {
 	char	*new_stash;
+	size_t	total_len;
 
-	new_stash = (char *)malloc(ft_strlen(stash) + ft_strlen(buffer) + 1);
-	ft_strlcat(new_stash, stash, ft_strlen(stash) + 1);
-	ft_strlcat(new_stash, buffer, ft_strlen(buffer) + 1);
-	free(stash);
-	return (new_stash);
+	if (*stash == NULL)
+	{
+		total_len = ft_strlen(buffer);
+		new_stash = (char *)malloc(total_len + 1);
+		if (!new_stash)
+			return ;
+		new_stash[0] = '\0';
+	}
+	else
+	{
+		total_len = ft_strlen(*stash) + ft_strlen(buffer);
+		new_stash = (char *)malloc(total_len + 1);
+		if (!new_stash)
+			return ;
+		ft_strlcpy(new_stash, *stash, ft_strlen(*stash) + 1);
+	}
+	ft_strlcat(new_stash, buffer, total_len + 1);
+	free(*stash);
+	*stash = new_stash;
+}
+
+void	trim_stash(char **stash, int newline_index)
+{
+	char	*new_stash;
+	int		i;
+	int		e;
+
+	i = 0;
+	e = newline_index + 1;
+	new_stash = (char *)malloc(ft_strlen(*stash) - newline_index);
+	if (!new_stash)
+		return ;
+	while ((*stash)[e])
+		new_stash[i++] = (*stash)[e++];
+	new_stash[i] = '\0';
+	free(*stash);
+	*stash = new_stash;
 }
 
 char	*get_next_line(int fd)
 {
-	static char	buffer[BUFFER_SIZE];
-	char		*stash;
+	char		buffer[BUFFER_SIZE];
+	static char	*stash;
 	int			bytes_read;
+	char		*line;
 
-	// char		*line;
-	bytes_read = 0;
-	stash = NULL;
 	while ((bytes_read = read(fd, buffer, BUFFER_SIZE)) > 0)
 	{
-		if (bytes_read != -1)
+		buffer[bytes_read] = '\0';
+		append_to_stash(&stash, buffer);
+		if (get_newline(stash) != -1)
 		{
-			stash = append_to_stash(stash, buffer);
-			if (get_newline(stash) != -1)
-			{
-				return (ft_substr(stash, 0, get_newline(stash)));
-			}
+			line = ft_substr(stash, 0, get_newline(stash) + 1);
+			trim_stash(&stash, get_newline(stash));
+			return (line);
 		}
+	}
+	if (stash && ft_strlen(stash) > 0)
+	{
+		line = ft_substr(stash, 0, ft_strlen(stash));
+		free(stash);
+		stash = NULL;
+		return (line);
 	}
 	return (NULL);
 }
@@ -74,7 +112,7 @@ int	main(void)
 
 	while ((line = get_next_line(fd)) != NULL)
 	{
-		printf("%s", line);
+		printf("%s\n", line);
 		free(line);
 	}
 
