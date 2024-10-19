@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 12:47:57 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/10/14 16:27:11 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/10/19 15:37:29 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 #  define BUFFER_SIZE 5
 # endif
 
-# include <fcntl.h> // TODO: delete this one as well
-# include <stdio.h> // TODO: delete this one
 # include <stdlib.h>
 # include <unistd.h>
 

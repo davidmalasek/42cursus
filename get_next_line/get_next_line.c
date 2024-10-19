@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 12:47:11 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/10/15 23:45:54 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/10/19 15:37:35 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,57 +70,46 @@ void	trim_stash(char **stash, int newline_index)
 	*stash = new_stash;
 }
 
+char	*extract_line(char **stash)
+{
+	char	*line;
+	int		newline_index;
+
+	newline_index = get_newline(*stash);
+	if (newline_index != -1)
+	{
+		line = ft_substr(*stash, 0, newline_index + 1);
+		trim_stash(stash, newline_index);
+	}
+	else
+	{
+		line = ft_substr(*stash, 0, ft_strlen(*stash));
+		free(*stash);
+		*stash = NULL;
+	}
+	return (line);
+}
+
 char	*get_next_line(int fd)
 {
-	char		buffer[BUFFER_SIZE];
+	char		buffer[BUFFER_SIZE + 1];
 	static char	*stash;
 	int			bytes_read;
-	char		*line;
 
-	while ((bytes_read = read(fd, buffer, BUFFER_SIZE)) > 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	bytes_read = read(fd, buffer, BUFFER_SIZE);
+	while (bytes_read > 0)
 	{
 		buffer[bytes_read] = '\0';
 		append_to_stash(&stash, buffer);
 		if (get_newline(stash) != -1)
-		{
-			line = ft_substr(stash, 0, get_newline(stash) + 1);
-			trim_stash(&stash, get_newline(stash));
-			return (line);
-		}
+			return (extract_line(&stash));
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
 	}
-	if (stash && ft_strlen(stash) > 0)
-	{
-		line = ft_substr(stash, 0, ft_strlen(stash));
-		free(stash);
-		stash = NULL;
-		return (line);
-	}
-	return (NULL);
-}
-
-int	main(void)
-{
-	int fd;
-	char *line;
-
-	fd = open("test.txt", O_RDONLY);
-	if (fd == -1)
-	{
-		perror("Error opening file");
-		return (1);
-	}
-
-	while ((line = get_next_line(fd)) != NULL)
-	{
-		printf("%s\n", line);
-		free(line);
-	}
-
-	if (close(fd) == -1)
-	{
-		perror("Error closing file");
-		return (1);
-	}
-
-	return (0);
+	if (bytes_read < 0 || stash == NULL)
+		return (free(stash), stash = NULL, NULL);
+	if (ft_strlen(stash) > 0)
+		return (extract_line(&stash));
+	return (free(stash), stash = NULL, NULL);
 }
