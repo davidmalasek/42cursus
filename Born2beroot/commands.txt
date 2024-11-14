@@ -1,0 +1,26 @@
+# Check if UFW service is active
+sudo ufw status
+
+# Check if SSH service is active
+sudo service ssh status
+
+# Check OS info
+uname -a
+
+# Add user
+sudo adduser <user>
+
+# Add user to group
+sudo adduser <user> <group>
+
+# Check group
+getent group <group>
+
+# Check hostname
+hostname
+
+# Connect via SSH
+ssh <user>@localhost -p 4242
+
+# Crontab config
+sudo crontab -u root -e
