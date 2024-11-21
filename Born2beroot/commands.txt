@@ -24,3 +24,6 @@ ssh <user>@localhost -p 4242
 
 # Crontab config
 sudo crontab -u root -e
+
+# Generate signature
+shasum <virtualmachine-name>.vdi
