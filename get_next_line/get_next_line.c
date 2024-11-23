@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 12:47:11 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/11/21 15:21:27 by dmalasek         ###   ########.fr       */
+/*   Updated: 2024/11/23 22:43:51 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,38 @@ int	read_and_append(int fd, char **stash)
 	return (bytes_read);
 }
 
+// ORIGINAL FUNCTION
+// char	*extract_line(char **stash)
+// {
+// 	char	*line;
+// 	char	*new_stash;
+// 	int		newline_index;
+
+// 	newline_index = get_newline(*stash);
+// 	if (newline_index != -1)
+// 	{
+// 		line = ft_substr(*stash, 0, newline_index + 1);
+// 		new_stash = ft_substr(*stash, newline_index + 1, ft_strlen(*stash)
+// 				- newline_index - 1);
+// 		if (!new_stash)
+// 		{
+// 			free(line);
+// 			return (NULL);
+// 		}
+// 		free(*stash);
+// 		*stash = new_stash;
+// 	}
+// 	else
+// 	{
+// 		line = ft_substr(*stash, 0, ft_strlen(*stash));
+// 		free(*stash);
+// 		*stash = NULL;
+// 	}
+// 	return (line);
+// }
+
+// GPT version:
+
 char	*extract_line(char **stash)
 {
 	char	*line;
@@ -82,6 +114,8 @@ char	*extract_line(char **stash)
 		if (!new_stash)
 		{
 			free(line);
+			free(*stash);
+			*stash = NULL;
 			return (NULL);
 		}
 		free(*stash);
