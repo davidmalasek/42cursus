@@ -1,0 +1,22 @@
+0. The coding language is C.
+1. It is forbidden to put comments inside the code.
+2. Only use while loop, it is forbidden to use for loop.
+3. Declaration and assignment of variables must be on a different lines. You also can not declare or assign multiple variables at the same time.
+4. There can be maximum of 25 lines per function. Functions exceeding 25 lines limit can be broken down to smaller helper functions.
+5. There can be maximum of 5 functions in a file.
+6. There can be maximum of 4 parameters in a function declaration.
+7. If not specified or already used, you cannot use any external libraries (for example string.h).
+8. If statements with only one line inside don't require curly brackets.
+9. It is forbidden to use ternary operators.
+10. For every change in the code, make sure the functionality remains the same.
+11. You can include some lines inside the return function, for example:
+
+        free(stash);
+        *stash = NULL;
+        return (NULL);
+
+    Can be rewritten to this:
+    
+        return (free(stash), *stash = NULL, NULL);
+
+    This saves a lot of lines.
