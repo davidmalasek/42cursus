@@ -1,11 +1,21 @@
 # Check if UFW service is active
 sudo service ufw status
 
+# Check UFW ports
+sudo ufw status
+
+# Add UFW port
+sudo ufw allow <port_num>
+
+# Delete UFW port
+sudo ufw status numbered
+sudo ufw delete <rule_num>
+
 # Check if SSH service is active
 sudo service ssh status
 
 # Check OS info
-uname -a
+uname -a (or -v)
 
 # Add user
 sudo adduser <user>
@@ -18,6 +28,12 @@ sudo adduser <user> <group>
 
 # Check group
 getent group <group>
+
+# Check that sudo is installed
+which sudo
+
+# Check sudo rules
+vim /etc/sudoers.d/sudo_config
 
 # Check hostname
 hostname
@@ -33,6 +49,12 @@ ssh <user>@localhost -p 4242
 
 # Crontab config
 sudo crontab -u root -e
+
+# Cron stop
+sudo /etc/init.d/cron stop
+
+# Cron run again
+sudo /etc/init.d/cron start
 
 # Generate signature
 shasum <virtualmachine-name>.vdi
