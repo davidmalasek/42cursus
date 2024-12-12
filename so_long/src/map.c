@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 18:08:49 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/12/12 18:10:58 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/12/12 22:35:06 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,6 @@ struct map	init_map(char *map)
 
 	map_obj.x = get_x(map);
 	map_obj.y = get_y(map);
+	map_obj.array = string_to_array(map);
 	return (map_obj);
 }

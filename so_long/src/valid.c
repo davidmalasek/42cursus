@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 18:08:12 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/12/12 18:12:47 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/12/12 22:40:44 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,18 @@ int	is_map_rectangular(char *map)
 		return (0);
 	return (1);
 }
+
+// TODO: finish this function
+int	is_map_surrounded_by_walls(char *map)
+{
+	struct map	map_obj;
+
+	map_obj.array = string_to_array(map);
+}
 int	is_map_valid(char *map)
 {
 	printf("Map is regular: %d\n", is_map_regular(map));
-	printf("Map is rectangular (0 if not regular): %d\n",
-		is_map_rectangular(map));
+	printf("Map is rectangular: %d\n", is_map_rectangular(map));
 	printf("Map X: %d\n", get_x(map));
 	printf("Map Y: %d\n", get_y(map));
 	return (is_map_regular(map), is_map_rectangular(map));

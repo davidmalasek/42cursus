@@ -35,7 +35,7 @@ int	main(void)
 {
 	char	*file_content;
 
-	file_content = read_from_file("../maps/map2.ber");
+	file_content = read_from_file("./maps/map2.ber");
 	printf("%s\n", file_content);
 	printf("\n---\n");
 	printf("%d\n", is_map_valid(file_content));

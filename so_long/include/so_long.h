@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 17:14:26 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/12/12 18:12:33 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/12/12 22:39:02 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,18 @@ struct		map
 {
 	int		x;
 	int		y;
-	char	**matrix;
+	char	**array;
 };
+
+int			get_x(char *map);
+int			get_y(char *map);
+char		**string_to_array(char *map);
+struct map	init_map(char *map);
+void		*ft_calloc(size_t count, size_t size);
+int			is_map_regular(char *map);
+int			is_map_rectangular(char *map);
+int			is_map_valid(char *map);
+char		*read_from_file(char *filename);
+int			is_map_surrounded_by_walls(char *map);
 
 #endif
