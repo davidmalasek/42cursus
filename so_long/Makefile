@@ -1,4 +1,4 @@
-# Does not work, include src/ prefix
+# TODO: Does not work, include src/ prefix
 
 # Compiler and flags
 CC = cc
