@@ -1,21 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/20 12:49:47 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/10/07 19:49:40 by dmalasek         ###   ########.fr       */
+/*   Created: 2024/12/12 18:02:43 by davidmalase       #+#    #+#             */
+/*   Updated: 2024/12/12 18:12:43 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-** ft_calloc
-** Allocates memory for an array and initializes it to zero
-*/
-
-#include "libft.h"
+#include "../include/so_long.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {
