@@ -6,40 +6,9 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 18:08:12 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/12/13 14:10:29 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/12/19 12:50:32 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-MAP:
-
-0 for an empty space,
-1 for a wall,
-C for a collectible,
-E for a map exit,
-P for the player’s starting position.
-
-Valid map checklist:
-- map must contain 1 exit, at least 1 collectible,
-	and 1 starting position to be valid
-- map must be rectangular
-- map must be closed/surrounded by walls, if it’s not,
-	the program must return an error
-- map must have a valid path
-
-If any misconfiguration of any kind is encountered in the file, the program must
-exit in a clean way,
-	and return "Error\n" followed by an explicit error message of
-your choice.
-
-Valid map:
-
-1111111111111
-10010000000C1
-1000011111001
-1P0011E000001
-1111111111111
-*/
 
 #include "../include/so_long.h"
 
@@ -127,13 +96,73 @@ int	is_map_surrounded_by_walls(char *map)
 	}
 	return (1);
 }
+// Checks if map has 1 starting point, 1 exit and at least 1 collectible.
+int	check_map_items(char *map)
+{
+	int		i;
+	int		e;
+	char	**array;
+	int		start_count;
+	int		exit_count;
+	int		collectible_count;
+
+	start_count = 0;
+	exit_count = 0;
+	collectible_count = 0;
+	array = string_to_array(map);
+	i = 0;
+	while (i < get_size_y(map))
+	{
+		e = 0;
+		while (e < get_size_x(map))
+		{
+			if (array[i][e] == 'P')
+				start_count++;
+			else if (array[i][e] == 'E')
+				exit_count++;
+			else if (array[i][e] == 'C')
+				collectible_count++;
+			e++;
+		}
+		i++;
+	}
+	return (start_count == 1 && exit_count == 1 && collectible_count >= 1);
+}
+
+int	has_map_valid_path(struct map map, int x, int y)
+{
+	if (x < 0 || y < 0 || x >= map.size_x || y >= map.size_y)
+		return (0);
+	if (map.array[x][y] == '1' || map.array[x][y] == 'V')
+		return (0);
+	if (map.array[x][y] == 'E')
+		return (1);
+	map.array[x][y] = 'V';
+	if (has_map_valid_path(map, x + 1, y) || has_map_valid_path(map, x - 1, y)
+		|| has_map_valid_path(map, x, y + 1) || has_map_valid_path(map, x, y
+			- 1))
+		return (1);
+	return (0);
+}
+
 int	is_map_valid(char *map)
 {
-	printf("Map is regular: %d\n", is_map_regular(map));
-	printf("Map is rectangular: %d\n", is_map_rectangular(map));
-	printf("Map X: %d\n", get_size_x(map));
-	printf("Map Y: %d\n", get_size_y(map));
-	printf("Map is surrounded by walls: %d\n", is_map_surrounded_by_walls(map));
+	struct map	map_matrix;
+
+	// TODO: Maybe at some point work with matrix instead of string
+	printf("Regular: %s\n", is_map_regular(map) ? "✅" : "❌");
+	printf("Rectangular: %s\n", is_map_rectangular(map) ? "✅" : "❌");
+	printf("Surrounded by walls: %s\n",
+		is_map_surrounded_by_walls(map) ? "✅" : "❌");
+	printf("Valid items: %s\n", check_map_items(map) ? "✅" : "❌");
+	map_matrix = init_map(map);
+	printf("Valid path: %s\n", has_map_valid_path(map_matrix,
+			map_matrix.start_x, map_matrix.start_y) ? "✅" : "❌");
+	printf("\n");
+	printf("Width: %d\n", get_size_x(map));
+	printf("Height: %d\n", get_size_y(map));
+	printf("Player starts at row %d, column %d\n", map_matrix.start_x,
+		map_matrix.start_y);
 	return (is_map_regular(map), is_map_rectangular(map),
 		is_map_surrounded_by_walls(map));
 }

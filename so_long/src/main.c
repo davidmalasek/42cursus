@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 12:49:21 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/12/13 13:38:31 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/12/19 12:41:16 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(void)
 {
 	char	*file_content;
 
-	file_content = read_from_file("./maps/map2.ber");
+	file_content = read_from_file("./maps/map1.ber");
 	printf("\nMap loaded from file:\n\n");
 	printf("%s", file_content);
 	printf("\n\n---\n\n");

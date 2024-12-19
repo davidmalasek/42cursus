@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 18:08:49 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/12/13 14:04:55 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/12/19 12:40:33 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,24 +124,26 @@ char	**string_to_array(char *map)
 
 int	find_start_pos(struct map *map_obj)
 {
-	int	i;
-	int	e;
+	int	x;
+	int	y;
 
-	i = 0;
-	while (i < map_obj->size_y)
+	if (!map_obj || !map_obj->array)
+		return (-1);
+	x = 0;
+	while (x < map_obj->size_x)
 	{
-		e = 0;
-		while (e < map_obj->size_x)
+		y = 0;
+		while (y < map_obj->size_y)
 		{
-			if (map_obj->array[i][e] == 'P')
+			if (map_obj->array[x][y] == 'P')
 			{
-				map_obj->start_x = e;
-				map_obj->start_y = i;
+				map_obj->start_x = x;
+				map_obj->start_y = y;
 				return (1);
 			}
-			e++;
+			y++;
 		}
-		i++;
+		x++;
 	}
 	return (-1);
 }
@@ -150,11 +152,9 @@ struct map	init_map(char *map)
 {
 	struct map	map_obj;
 
-	map_obj.size_x = get_size_x(map);
-	map_obj.size_y = get_size_y(map);
+	map_obj.size_x = get_size_y(map);
+	map_obj.size_y = get_size_x(map);
 	map_obj.array = string_to_array(map);
 	find_start_pos(&map_obj);
-	printf("Start X: %d\n", map_obj.start_x);
-	printf("Start Y: %d\n", map_obj.start_y);
 	return (map_obj);
 }
