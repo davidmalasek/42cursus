@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 17:14:26 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/12/13 13:37:52 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/12/19 15:33:05 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <stdio.h>  // For perror()
 # include <stdlib.h> // For NULL, malloc()
 # include <unistd.h> // For read(), close()
+
+// mlx42
+# include "../mlx42/include/MLX42/MLX42.h"
 
 struct		map
 {
