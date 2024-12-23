@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 18:08:12 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/12/19 12:50:32 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/12/23 15:53:44 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,8 @@ int	check_map_items(char *map)
 				exit_count++;
 			else if (array[i][e] == 'C')
 				collectible_count++;
+			else if (array[i][e] != '0' || array[i][e] != '1')
+				return (0);
 			e++;
 		}
 		i++;

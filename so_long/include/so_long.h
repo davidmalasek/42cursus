@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 17:14:26 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/12/19 15:33:05 by davidmalase      ###   ########.fr       */
+/*   Updated: 2024/12/23 15:21:10 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,18 @@
 # include <stdlib.h> // For NULL, malloc()
 # include <unistd.h> // For read(), close()
 
-// mlx42
-# include "../mlx42/include/MLX42/MLX42.h"
+// minilibx-linux
+# include "../minilibx-linux/mlx.h"
+
+// X11 events
+# include <X11/X.h>
+# include <X11/keysym.h>
+
+typedef struct s_data
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+}			t_data;
 
 struct		map
 {

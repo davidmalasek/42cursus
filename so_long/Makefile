@@ -13,12 +13,9 @@ OBJ = $(SRC:.c=.o)
 # Rules
 all: $(NAME)
 
-# $(NAME): $(OBJ)
-# 	$(CC) $(CFLAGS) $^ -o $@
-
-# TODO: This works for Mac OS - change for Linux accordingly
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $^ -o $@ -L mlx42/build -lmlx42 -L /opt/homebrew/Cellar/glfw/3.4/lib -lglfw -framework Cocoa -framework OpenGL -framework IOKit
+# This works for Linux only
+$(NAME): minilibx-linux/libmlx.a $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -L minilibx-linux -lmlx -lXext -lX11 -lm -lz
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
