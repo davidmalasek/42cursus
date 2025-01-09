@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 17:14:26 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/12/23 15:21:10 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/09 17:49:10 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,37 +26,44 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 
-typedef struct s_data
-{
-	void	*mlx_ptr;
-	void	*win_ptr;
-}			t_data;
+// Other
+# define SPRITE_SIZE 32
 
-struct		map
+typedef struct
 {
-	int		size_x;
-	int		size_y;
-	char	**array;
-	int		start_x;
-	int		start_y;
+	int			x;
+	int			y;
+}				coordinates;
+
+// TODO: replace start_x, start_y with player_x and player_y?
+struct			map
+{
+	int			size_x;
+	int			size_y;
+	int			start_x;
+	int			start_y;
+	coordinates	start;
+	int			collectibles;
+	int			steps;
+	char		**array;
 };
 
 // Utils
-void		*ft_calloc(size_t count, size_t size);
+void			*ft_calloc(size_t count, size_t size);
 
 // Map
-int			get_size_x(char *map);
-int			get_size_y(char *map);
-char		**string_to_array(char *map);
-struct map	init_map(char *map);
+int				get_size_x(char *map);
+int				get_size_y(char *map);
+char			**string_to_array(char *map);
+struct map		init_map(char *map);
 
 // Map validation
-int			is_map_regular(char *map);
-int			is_map_rectangular(char *map);
-int			is_map_valid(char *map);
-int			is_map_surrounded_by_walls(char *map);
+int				is_map_regular(char *map);
+int				is_map_rectangular(char *map);
+int				is_map_valid(char *map);
+int				is_map_surrounded_by_walls(char *map);
 
 // File
-char		*read_from_file(char *filename);
+char			*read_from_file(char *filename);
 
 #endif

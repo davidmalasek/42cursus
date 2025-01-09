@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 18:08:12 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/12/23 15:53:44 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/09 17:57:51 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ int	is_map_regular(char *map)
 		return (0);
 	return (1);
 }
-// This function assumes that map is regular thanks to the order of the check functions.
+// This function assumes that map is regular thanks to the order of the check
+// functions.
 int	is_map_rectangular(char *map)
 {
 	int	x_count;
@@ -122,7 +123,7 @@ int	check_map_items(char *map)
 				exit_count++;
 			else if (array[i][e] == 'C')
 				collectible_count++;
-			else if (array[i][e] != '0' || array[i][e] != '1')
+			else if (array[i][e] != '0' && array[i][e] != '1')
 				return (0);
 			e++;
 		}
@@ -133,7 +134,7 @@ int	check_map_items(char *map)
 
 int	has_map_valid_path(struct map map, int x, int y)
 {
-	if (x < 0 || y < 0 || x >= map.size_x || y >= map.size_y)
+	if (x < 0 || y < 0 || x >= map.size_y || y >= map.size_x)
 		return (0);
 	if (map.array[x][y] == '1' || map.array[x][y] == 'V')
 		return (0);
@@ -159,12 +160,12 @@ int	is_map_valid(char *map)
 	printf("Valid items: %s\n", check_map_items(map) ? "✅" : "❌");
 	map_matrix = init_map(map);
 	printf("Valid path: %s\n", has_map_valid_path(map_matrix,
-			map_matrix.start_x, map_matrix.start_y) ? "✅" : "❌");
+			map_matrix.start.x, map_matrix.start.y) ? "✅" : "❌");
 	printf("\n");
 	printf("Width: %d\n", get_size_x(map));
 	printf("Height: %d\n", get_size_y(map));
-	printf("Player starts at row %d, column %d\n", map_matrix.start_x,
-		map_matrix.start_y);
+	printf("Player starts at row %d, column %d\n", map_matrix.start.x,
+		map_matrix.start.y);
 	return (is_map_regular(map), is_map_rectangular(map),
 		is_map_surrounded_by_walls(map));
 }

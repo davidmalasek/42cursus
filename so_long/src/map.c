@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 18:08:49 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/12/19 12:40:33 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/09 17:58:01 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+// Width of a map
 int	get_size_x(char *map)
 {
 	int	x;
@@ -28,6 +29,7 @@ int	get_size_x(char *map)
 	return (-1);
 }
 
+// Height of a map
 int	get_size_y(char *map)
 {
 	int	y;
@@ -122,39 +124,34 @@ char	**string_to_array(char *map)
 	return (matrix);
 }
 
-int	find_start_pos(struct map *map_obj)
+coordinates	find_start_pos(char **array, int size_x, int size_y)
 {
-	int	x;
 	int	y;
+	int	x;
 
-	if (!map_obj || !map_obj->array)
-		return (-1);
-	x = 0;
-	while (x < map_obj->size_x)
+	y = 0;
+	while (y < size_y)
 	{
-		y = 0;
-		while (y < map_obj->size_y)
+		x = 0;
+		while (x < size_x)
 		{
-			if (map_obj->array[x][y] == 'P')
-			{
-				map_obj->start_x = x;
-				map_obj->start_y = y;
-				return (1);
-			}
-			y++;
+			if (array[y][x] == 'P')
+				return ((coordinates){y, x});
+			x++;
 		}
-		x++;
+		y++;
 	}
-	return (-1);
+	return ((coordinates){-1, -1});
 }
 
 struct map	init_map(char *map)
 {
 	struct map	map_obj;
 
-	map_obj.size_x = get_size_y(map);
-	map_obj.size_y = get_size_x(map);
+	map_obj.size_x = get_size_x(map);
+	map_obj.size_y = get_size_y(map);
 	map_obj.array = string_to_array(map);
-	find_start_pos(&map_obj);
+	map_obj.start = find_start_pos(map_obj.array, map_obj.size_x,
+			map_obj.size_y);
 	return (map_obj);
 }
