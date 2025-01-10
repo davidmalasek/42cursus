@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 18:08:49 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/09 17:58:01 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/10 15:37:05 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,80 +50,6 @@ int	get_size_y(char *map)
 	return (y);
 }
 
-void	free_matrix(char **matrix, int rows)
-{
-	int	i;
-
-	i = 0;
-	while (i < rows)
-	{
-		free(matrix[i]);
-		i++;
-	}
-	free(matrix);
-}
-
-char	**allocate_matrix(int size_x, int size_y)
-{
-	char	**matrix;
-	int		i;
-
-	matrix = (char **)calloc(size_y, sizeof(char *));
-	if (!matrix)
-		return (NULL);
-	i = 0;
-	while (i < size_y)
-	{
-		matrix[i] = (char *)calloc(size_x + 1, sizeof(char));
-		if (!matrix[i])
-		{
-			free_matrix(matrix, i);
-			return (NULL);
-		}
-		i++;
-	}
-	return (matrix);
-}
-
-void	fill_matrix(char **matrix, char *map, int size_x, int size_y)
-{
-	int	row;
-	int	col;
-
-	row = 0;
-	col = 0;
-	while (*map)
-	{
-		if (*map == '\n')
-		{
-			matrix[row][col] = '\0';
-			row++;
-			col = 0;
-		}
-		else if (row < size_y && col < size_x)
-		{
-			matrix[row][col] = *map;
-			col++;
-		}
-		map++;
-	}
-}
-
-char	**string_to_array(char *map)
-{
-	int		size_x;
-	int		size_y;
-	char	**matrix;
-
-	size_x = get_size_x(map);
-	size_y = get_size_y(map);
-	matrix = allocate_matrix(size_x, size_y);
-	if (!matrix)
-		return (NULL);
-	fill_matrix(matrix, map, size_x, size_y);
-	return (matrix);
-}
-
 coordinates	find_start_pos(char **array, int size_x, int size_y)
 {
 	int	y;
@@ -144,6 +70,28 @@ coordinates	find_start_pos(char **array, int size_x, int size_y)
 	return ((coordinates){-1, -1});
 }
 
+int	count_coll(char **array, int size_x, int size_y)
+{
+	int	y;
+	int	x;
+	int	coll_count;
+
+	y = 0;
+	coll_count = 0;
+	while (y < size_y)
+	{
+		x = 0;
+		while (x < size_x)
+		{
+			if (array[y][x] == 'C')
+				coll_count++;
+			x++;
+		}
+		y++;
+	}
+	return (coll_count);
+}
+
 struct map	init_map(char *map)
 {
 	struct map	map_obj;
@@ -151,7 +99,11 @@ struct map	init_map(char *map)
 	map_obj.size_x = get_size_x(map);
 	map_obj.size_y = get_size_y(map);
 	map_obj.array = string_to_array(map);
-	map_obj.start = find_start_pos(map_obj.array, map_obj.size_x,
+	map_obj.player_pos = find_start_pos(map_obj.array, map_obj.size_x,
 			map_obj.size_y);
+	map_obj.total_coll = count_coll(map_obj.array, map_obj.size_x,
+			map_obj.size_y);
+	map_obj.coll_picked = 0;
+	map_obj.number_of_movements = 0;
 	return (map_obj);
 }

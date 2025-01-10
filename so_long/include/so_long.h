@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 17:14:26 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/09 17:49:10 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/10 17:29:50 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,16 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 
-// Other
+// Sprites
 # define SPRITE_SIZE 32
+
+# define SPRITE_DIR "sprites/"
+
+# define WALL SPRITE_DIR "wall.xpm"
+# define PLAYER SPRITE_DIR "player.xpm"
+# define COLL SPRITE_DIR "coll.xpm"
+# define EXIT SPRITE_DIR "exit.xpm"
+# define GROUND SPRITE_DIR "ground.xpm"
 
 typedef struct
 {
@@ -35,21 +43,32 @@ typedef struct
 	int			y;
 }				coordinates;
 
-// TODO: replace start_x, start_y with player_x and player_y?
 struct			map
 {
 	int			size_x;
 	int			size_y;
-	int			start_x;
-	int			start_y;
-	coordinates	start;
-	int			collectibles;
+	coordinates	player_pos;
+	char		player_on;
+	int			total_coll;
+	int			coll_picked;
 	int			steps;
 	char		**array;
+	int			number_of_movements;
+};
+
+struct			game
+{
+	struct map	map;
+	void		*mlx;
+	void		*mlx_win;
 };
 
 // Utils
 void			*ft_calloc(size_t count, size_t size);
+char			**allocate_matrix(int size_x, int size_y);
+void			fill_matrix(char **matrix, char *map, int size_x, int size_y);
+size_t			ft_strlen(const char *str);
+int				ft_strcmp(char *s1, char *s2);
 
 // Map
 int				get_size_x(char *map);
@@ -62,8 +81,22 @@ int				is_map_regular(char *map);
 int				is_map_rectangular(char *map);
 int				is_map_valid(char *map);
 int				is_map_surrounded_by_walls(char *map);
+int				validate_char(char c, int *start, int *exit, int *collectibles);
+int				check_map_items(struct map map);
 
 // File
 char			*read_from_file(char *filename);
+
+// Logic
+int				handle_keypress(int keycode, void *param);
+int				handle_close(void);
+void			handle_movement(int keycode, struct game *game);
+void			move_player(struct game *game, int new_x, int new_y);
+
+// Render
+int				render_map(void *mlx, void *mlx_win, struct map map);
+
+// Deinit
+void			free_map(struct map *map);
 
 #endif

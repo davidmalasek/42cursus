@@ -3,7 +3,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 # Source files
-SRC = file.c main.c map.c utils.c valid.c
+SRC = file.c main.c map.c utils.c valid.c render.c logic.c valid2.c utils2.c deinit.c
 SRC := $(addprefix src/, $(SRC))
 
 # Output

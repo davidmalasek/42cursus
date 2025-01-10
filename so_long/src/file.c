@@ -3,16 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   file.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 18:06:19 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/12/12 18:11:29 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/10 16:59:41 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-// TODO: proper error printing
+int	is_valid_file_extension(char *filename)
+{
+	int	len;
+
+	if (!filename || !*filename)
+		return (0);
+	len = ft_strlen(filename);
+	if (len < 4)
+		return (0);
+	return (ft_strcmp(&filename[len - 4], ".ber") == 0);
+}
+
 char	*read_from_file(char *filename)
 {
 	char	*map;
@@ -22,15 +33,19 @@ char	*read_from_file(char *filename)
 
 	char_count = 0;
 	fd = open(filename, O_RDONLY);
+	if (!is_valid_file_extension(filename))
+		return (printf("Error\n- invalid file\n"), exit(0), "");
 	if (fd < 0)
-		perror("Error \n");
+		return (printf("Error\n- could not open the provided file\n"), exit(0),
+			"");
 	while (read(fd, &buffer, 1) == 1)
 		char_count++;
 	if (char_count == 0)
-		perror("Error \n");
+		return (printf("Error\n- provided file is empty.\n"), exit(0), "");
 	map = (char *)malloc(sizeof(char) * (char_count + 1));
 	if (!map)
-		perror("Error \n");
+		return (printf("Error\n- failed to allocate memory for the map\n"),
+			exit(0), "");
 	close(fd);
 	fd = open(filename, O_RDONLY);
 	read(fd, map, char_count);
