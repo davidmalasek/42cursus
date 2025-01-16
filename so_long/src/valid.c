@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 18:08:12 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/10 17:06:01 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/16 15:25:55 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,9 @@ int	is_map_regular(char *map)
 int	is_map_rectangular(char *map)
 {
 	int	x_count;
-	int	y_count;
 	int	first_row_length;
 
 	x_count = 0;
-	y_count = 0;
 	first_row_length = 0;
 	while (*map)
 	{
@@ -58,7 +56,6 @@ int	is_map_rectangular(char *map)
 				first_row_length = x_count;
 			else if (x_count != first_row_length)
 				return (0);
-			y_count++;
 			x_count = 0;
 		}
 		else
@@ -128,21 +125,21 @@ int	is_map_valid(char *map)
 // {
 // 	struct map	map_matrix;
 
-// 	printf("\nMap loaded from file:\n\n");
-// 	printf("%s", map);
-// 	printf("\n\n---\n\n");
-// 	printf("Regular: %s\n", is_map_regular(map) ? "✅" : "❌");
-// 	printf("Rectangular: %s\n", is_map_rectangular(map) ? "✅" : "❌");
-// 	printf("Surrounded by walls: %s\n",
+// 	ft_printf("\nMap loaded from file:\n\n");
+// 	ft_printf("%s", map);
+// 	ft_printf("\n\n---\n\n");
+// 	ft_printf("Regular: %s\n", is_map_regular(map) ? "✅" : "❌");
+// 	ft_printf("Rectangular: %s\n", is_map_rectangular(map) ? "✅" : "❌");
+// 	ft_printf("Surrounded by walls: %s\n",
 // 		is_map_surrounded_by_walls(map) ? "✅" : "❌");
 // 	map_matrix = init_map(map);
-// 	printf("Valid items: %s\n", check_map_items(map_matrix) ? "✅" : "❌");
-// 	printf("Valid path: %s\n", has_map_valid_path(map_matrix,
+// 	ft_printf("Valid items: %s\n", check_map_items(map_matrix) ? "✅" : "❌");
+// 	ft_printf("Valid path: %s\n", has_map_valid_path(map_matrix,
 // 			map_matrix.player_pos.x, map_matrix.player_pos.y) ? "✅" : "❌");
-// 	printf("\n");
-// 	printf("Width: %d\n", get_size_x(map));
-// 	printf("Height: %d\n", get_size_y(map));
-// 	printf("Player starts at row %d, column %d\n\n", map_matrix.player_pos.x,
+// 	ft_printf("\n");
+// 	ft_printf("Width: %d\n", get_size_x(map));
+// 	ft_printf("Height: %d\n", get_size_y(map));
+// 	ft_printf("Player starts at row %d, column %d\n\n", map_matrix.player_pos.x,
 // 		map_matrix.player_pos.y);
 // 	return (is_map_regular(map) && is_map_rectangular(map)
 // 		&& is_map_surrounded_by_walls(map) && check_map_items(map_matrix)

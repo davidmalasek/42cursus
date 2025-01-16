@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   file.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 18:06:19 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/10 16:59:41 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/16 15:28:21 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,16 @@ char	*read_from_file(char *filename)
 	char_count = 0;
 	fd = open(filename, O_RDONLY);
 	if (!is_valid_file_extension(filename))
-		return (printf("Error\n- invalid file\n"), exit(0), "");
+		return (ft_printf("Error\n- invalid file\n"), exit(0), "");
 	if (fd < 0)
-		return (printf("Error\n- could not open the provided file\n"), exit(0),
-			"");
+		return (ft_printf("Error\n- cannot open provided file\n"), exit(0), "");
 	while (read(fd, &buffer, 1) == 1)
 		char_count++;
 	if (char_count == 0)
-		return (printf("Error\n- provided file is empty.\n"), exit(0), "");
+		return (ft_printf("Error\n- provided file is empty.\n"), exit(0), "");
 	map = (char *)malloc(sizeof(char) * (char_count + 1));
 	if (!map)
-		return (printf("Error\n- failed to allocate memory for the map\n"),
+		return (ft_printf("Error\n- failed to allocate memory for the map\n"),
 			exit(0), "");
 	close(fd);
 	fd = open(filename, O_RDONLY);

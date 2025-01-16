@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   logic.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:37:49 by dmalasek          #+#    #+#             */
-/*   Updated: 2025/01/10 17:34:38 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/16 15:25:55 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	move_player(struct game *game, int new_x, int new_y)
 				return ;
 			else
 			{
-				printf("You won!\n");
+				ft_printf("You won!\n");
 				handle_close();
 			}
 		}
@@ -35,7 +35,7 @@ void	move_player(struct game *game, int new_x, int new_y)
 		game->map.array[new_x][new_y] = 'P';
 		game->map.player_pos = (coordinates){new_x, new_y};
 		game->map.number_of_movements++;
-		printf("%d\n", game->map.number_of_movements);
+		ft_printf("%d\n", game->map.number_of_movements);
 	}
 }
 
@@ -46,13 +46,13 @@ void	handle_movement(int keycode, struct game *game)
 
 	x = game->map.player_pos.x;
 	y = game->map.player_pos.y;
-	if (keycode == 119)
+	if (keycode == KEY_W)
 		move_player(game, x - 1, y);
-	else if (keycode == 97)
+	else if (keycode == KEY_A)
 		move_player(game, x, y - 1);
-	else if (keycode == 115)
+	else if (keycode == KEY_S)
 		move_player(game, x + 1, y);
-	else if (keycode == 100)
+	else if (keycode == KEY_D)
 		move_player(game, x, y + 1);
 }
 

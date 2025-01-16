@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   print_uint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/10 16:50:33 by dmalasek          #+#    #+#             */
-/*   Updated: 2025/01/16 15:25:55 by davidmalase      ###   ########.fr       */
+/*   Created: 2024/10/03 09:33:23 by dmalasek          #+#    #+#             */
+/*   Updated: 2024/10/05 12:28:58 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "ft_printf.h"
 
-// Removed ft_strlen due to its presence in ft_ft_printf
-
-int	ft_strcmp(char *s1, char *s2)
+void	print_uint(va_list *args, int *count)
 {
-	int	index;
+	unsigned int	unsigned_int;
 
-	index = 0;
-	while (s1[index] != '\0' || s2[index] != '\0')
-	{
-		if (s1[index] != s2[index])
-		{
-			return (s1[index] - s2[index]);
-		}
-		index++;
-	}
-	return (0);
+	unsigned_int = va_arg(*args, unsigned int);
+	ft_putunbr_fd(unsigned_int, 1, count);
 }

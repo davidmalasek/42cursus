@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 12:49:21 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/10 17:16:29 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/16 15:36:03 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(void)
 	if (is_map_valid(file_content))
 		map_obj = init_map(file_content);
 	else
-		return (printf("Error\n- provided map is not valid\n"), exit(0), 0);
+		return (ft_printf("Error\n- provided map is not valid\n"), exit(0), 0);
 	mlx = mlx_init();
 	mlx_win = mlx_new_window(mlx, map_obj.size_x * SPRITE_SIZE, map_obj.size_y
 			* SPRITE_SIZE, "so_long");
@@ -39,7 +39,6 @@ int	main(void)
 
 /*
 TODO
-- replace printf with ft_printf
 - proper errors everywhere
 - valgrind finds a lot of leaks, so deinit?
 */

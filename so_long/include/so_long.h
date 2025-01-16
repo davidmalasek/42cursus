@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 17:14:26 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/10 17:29:50 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/16 15:25:08 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,32 @@
 
 // minilibx-linux
 # include "../minilibx-linux/mlx.h"
+# include "../minilibx_macos/mlx.h"
 
-// X11 events
-# include <X11/X.h>
-# include <X11/keysym.h>
+// ft_printf
+# include "../ft_printf/ft_printf.h"
+
+// X11 events (only for Linux)
+# ifdef __linux__
+#  include <X11/X.h>
+#  include <X11/keysym.h>
+# endif
+
+// Different key code definitions for both systems
+# ifdef __APPLE__ // macOS
+#  define KEY_W 13
+#  define KEY_A 0
+#  define KEY_S 1
+#  define KEY_D 2
+# elif __linux__ // Linux
+#  define KEY_W 119
+#  define KEY_A 97
+#  define KEY_S 115
+#  define KEY_D 100
+# endif
 
 // Sprites
-# define SPRITE_SIZE 32
+# define SPRITE_SIZE 50
 
 # define SPRITE_DIR "sprites/"
 
