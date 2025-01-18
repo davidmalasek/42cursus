@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 18:02:43 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/10 15:37:00 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/18 17:55:29 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,12 @@ void	*ft_calloc(size_t count, size_t size)
 
 char	**string_to_array(char *map)
 {
+	char	**matrix;
 	int		size_x;
 	int		size_y;
-	char	**matrix;
 
+	if (!map)
+		return (NULL);
 	size_x = get_size_x(map);
 	size_y = get_size_y(map);
 	matrix = allocate_matrix(size_x, size_y);
@@ -68,10 +70,12 @@ char	**allocate_matrix(int size_x, int size_y)
 	char	**matrix;
 	int		i;
 
-	matrix = (char **)calloc(size_y, sizeof(char *));
+	i = 0;
+	if (size_x <= 0 || size_y <= 0)
+		return (NULL);
+	matrix = (char **)calloc(size_y + 1, sizeof(char *));
 	if (!matrix)
 		return (NULL);
-	i = 0;
 	while (i < size_y)
 	{
 		matrix[i] = (char *)calloc(size_x + 1, sizeof(char));
@@ -92,7 +96,7 @@ void	fill_matrix(char **matrix, char *map, int size_x, int size_y)
 
 	row = 0;
 	col = 0;
-	while (*map)
+	while (*map && row < size_y)
 	{
 		if (*map == '\n')
 		{
@@ -100,11 +104,13 @@ void	fill_matrix(char **matrix, char *map, int size_x, int size_y)
 			row++;
 			col = 0;
 		}
-		else if (row < size_y && col < size_x)
+		else if (col < size_x)
 		{
 			matrix[row][col] = *map;
 			col++;
 		}
 		map++;
 	}
+	if (col > 0 && row < size_y)
+		matrix[row][col] = '\0';
 }

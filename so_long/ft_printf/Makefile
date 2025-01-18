@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRC = ft_printf.c print_char.c print_invalid.c print_lhex.c print_ptadd.c print_sint.c print_str.c print_uhex.c print_uint.c utils.c
 
 # Output
-NAME = printf.a
+NAME = ft_printf.a
 OBJ = $(SRC:.c=.o)
 AR = ar crs
 

@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/01/16 14:19:12 by davidmalase       #+#    #+#              #
-#    Updated: 2025/01/16 15:22:45 by davidmalase      ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 CHECK_OS = $(shell uname -s)
 
 ifeq ($(CHECK_OS), Darwin)
@@ -33,20 +21,36 @@ SRC := $(addprefix src/, $(SRC))
 NAME = so_long
 OBJ = $(SRC:.c=.o)
 
+# Library paths
+PRINTF_DIR = ft_printf
+PRINTF_LIB = $(PRINTF_DIR)/ft_printf.a
+
 # Rules
 all: $(NAME)
 
-$(NAME): $(MLX_DIR)/libmlx.a $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBS) ft_printf/ft_printf.a
+$(NAME): $(MLX_DIR)/libmlx.a $(PRINTF_LIB) $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBS) $(PRINTF_LIB)
+
+# Build ft_printf
+$(PRINTF_LIB):
+	$(MAKE) -C $(PRINTF_DIR)
+
+# Build minilibx
+$(MLX_DIR)/libmlx.a:
+	$(MAKE) -C $(MLX_DIR)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
+	$(MAKE) -C $(PRINTF_DIR) clean
+	$(MAKE) -C $(MLX_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
+	$(MAKE) -C $(PRINTF_DIR) fclean
+	$(MAKE) -C $(MLX_DIR) clean
 
 re: fclean all
 

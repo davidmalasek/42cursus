@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 18:08:12 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/16 15:25:55 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/18 18:56:05 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,24 +73,26 @@ int	is_map_surrounded_by_walls(char *map)
 	char	**array;
 
 	array = string_to_array(map);
+	if (!array)
+		return (0);
 	i = 0;
 	while (i < get_size_x(map))
 	{
 		if (array[0][i] == '0' || array[get_size_y(map) - 1][i] == '0')
-			return (0);
+			return (free_matrix(array, get_size_y(map)), 0);
 		i++;
 	}
 	i = 0;
 	while (i < get_size_y(map))
 	{
 		if (array[i][0] == '0' || array[i][get_size_x(map) - 1] == '0')
-			return (0);
+			return (free_matrix(array, get_size_y(map)), 0);
 		i++;
 	}
-	return (1);
+	return (free_matrix(array, get_size_y(map)), 1);
 }
 
-int	has_map_valid_path(struct map map, int x, int y)
+int	has_map_valid_path(struct s_map map, int x, int y)
 {
 	if (x < 0 || y < 0 || x >= map.size_y || y >= map.size_x)
 		return (0);
@@ -106,43 +108,19 @@ int	has_map_valid_path(struct map map, int x, int y)
 	return (0);
 }
 
-// FOR EVALUATION, UNCOMMENT THIS
-
 int	is_map_valid(char *map)
 {
-	struct map	map_matrix;
+	struct s_map	map_matrix;
 
 	map_matrix = init_map(map);
-	return (is_map_regular(map) && is_map_rectangular(map)
-		&& is_map_surrounded_by_walls(map) && check_map_items(map_matrix)
-		&& has_map_valid_path(map_matrix, map_matrix.player_pos.x,
-			map_matrix.player_pos.y));
+	if (!is_map_regular(map) || !is_map_rectangular(map)
+		|| !is_map_surrounded_by_walls(map) || !check_map_items(map_matrix)
+		|| !has_map_valid_path(map_matrix, map_matrix.player_pos.x,
+			map_matrix.player_pos.y))
+	{
+		free_matrix(map_matrix.array, map_matrix.size_y);
+		return (0);
+	}
+	free_matrix(map_matrix.array, map_matrix.size_y);
+	return (1);
 }
-
-// FOR DEBUGGING, UNCOMMENT THIS
-
-// int	is_map_valid(char *map)
-// {
-// 	struct map	map_matrix;
-
-// 	ft_printf("\nMap loaded from file:\n\n");
-// 	ft_printf("%s", map);
-// 	ft_printf("\n\n---\n\n");
-// 	ft_printf("Regular: %s\n", is_map_regular(map) ? "✅" : "❌");
-// 	ft_printf("Rectangular: %s\n", is_map_rectangular(map) ? "✅" : "❌");
-// 	ft_printf("Surrounded by walls: %s\n",
-// 		is_map_surrounded_by_walls(map) ? "✅" : "❌");
-// 	map_matrix = init_map(map);
-// 	ft_printf("Valid items: %s\n", check_map_items(map_matrix) ? "✅" : "❌");
-// 	ft_printf("Valid path: %s\n", has_map_valid_path(map_matrix,
-// 			map_matrix.player_pos.x, map_matrix.player_pos.y) ? "✅" : "❌");
-// 	ft_printf("\n");
-// 	ft_printf("Width: %d\n", get_size_x(map));
-// 	ft_printf("Height: %d\n", get_size_y(map));
-// 	ft_printf("Player starts at row %d, column %d\n\n", map_matrix.player_pos.x,
-// 		map_matrix.player_pos.y);
-// 	return (is_map_regular(map) && is_map_rectangular(map)
-// 		&& is_map_surrounded_by_walls(map) && check_map_items(map_matrix)
-// 		&& has_map_valid_path(map_matrix, map_matrix.player_pos.x,
-// 			map_matrix.player_pos.y));
-// }

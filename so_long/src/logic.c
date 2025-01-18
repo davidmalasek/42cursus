@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   logic.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:37:49 by dmalasek          #+#    #+#             */
-/*   Updated: 2025/01/16 15:25:55 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/18 18:40:38 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void	move_player(struct game *game, int new_x, int new_y)
+void	move_player(struct s_game *game, int new_x, int new_y)
 {
 	char	next_tile;
 
@@ -28,18 +28,18 @@ void	move_player(struct game *game, int new_x, int new_y)
 			else
 			{
 				ft_printf("You won!\n");
-				handle_close();
+				handle_close(game);
 			}
 		}
 		game->map.array[game->map.player_pos.x][game->map.player_pos.y] = '0';
 		game->map.array[new_x][new_y] = 'P';
-		game->map.player_pos = (coordinates){new_x, new_y};
+		game->map.player_pos = (t_coordinates){new_x, new_y};
 		game->map.number_of_movements++;
 		ft_printf("%d\n", game->map.number_of_movements);
 	}
 }
 
-void	handle_movement(int keycode, struct game *game)
+void	handle_movement(int keycode, struct s_game *game)
 {
 	int	x;
 	int	y;
@@ -58,19 +58,19 @@ void	handle_movement(int keycode, struct game *game)
 
 int	handle_keypress(int keycode, void *param)
 {
-	struct game	*game;
+	struct s_game	*game;
 
-	game = (struct game *)param;
+	game = (struct s_game *)param;
 	if (keycode == 65307)
-		handle_close();
+		handle_close(game);
 	handle_movement(keycode, game);
 	render_map(game->mlx, game->mlx_win, game->map);
 	return (1);
 }
 
-int	handle_close(void)
+int	handle_close(struct s_game *game)
 {
-	// Functions that free structures
+	free_map(game->map.array);
+	free_mlx(game);
 	exit(0);
-	return (0);
 }

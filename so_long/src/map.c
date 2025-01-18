@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 18:08:49 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/10 15:37:05 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/18 18:40:38 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	get_size_y(char *map)
 	return (y);
 }
 
-coordinates	find_start_pos(char **array, int size_x, int size_y)
+t_coordinates	find_start_pos(char **array, int size_x, int size_y)
 {
 	int	y;
 	int	x;
@@ -62,12 +62,12 @@ coordinates	find_start_pos(char **array, int size_x, int size_y)
 		while (x < size_x)
 		{
 			if (array[y][x] == 'P')
-				return ((coordinates){y, x});
+				return ((t_coordinates){y, x});
 			x++;
 		}
 		y++;
 	}
-	return ((coordinates){-1, -1});
+	return ((t_coordinates){-1, -1});
 }
 
 int	count_coll(char **array, int size_x, int size_y)
@@ -92,9 +92,9 @@ int	count_coll(char **array, int size_x, int size_y)
 	return (coll_count);
 }
 
-struct map	init_map(char *map)
+struct s_map	init_map(char *map)
 {
-	struct map	map_obj;
+	struct s_map	map_obj;
 
 	map_obj.size_x = get_size_x(map);
 	map_obj.size_y = get_size_y(map);

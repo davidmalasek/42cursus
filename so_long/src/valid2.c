@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 16:06:06 by dmalasek          #+#    #+#             */
-/*   Updated: 2025/01/10 16:19:51 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/18 18:38:56 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	validate_char(char c, int *start, int *exit, int *collectibles)
 	return (1);
 }
 
-int	check_map_items(struct map map)
+int	check_map_items(struct s_map map)
 {
 	int	i;
 	int	e;
