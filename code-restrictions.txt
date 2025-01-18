@@ -1,7 +1,7 @@
 0. The coding language is C.
-1. It is forbidden to put comments inside the code.
+1. Do not put comments of any kind inside the code. Explain the code outside.
 2. Only use while loop, it is forbidden to use for loop.
-3. Declaration and assignment of variables must be on a different lines. You also can not declare or assign multiple variables at the same time.
+3. Declaration and assignment of variables must be on a different lines. You also can not declare or assign multiple variables at the same time. For example, this is forbidden: int y, x;
 4. There can be maximum of 25 lines per function. Functions exceeding 25 lines limit can be broken down to smaller helper functions.
 5. There can be maximum of 5 functions in a file.
 6. There can be maximum of 4 parameters in a function declaration.
@@ -20,3 +20,4 @@
         return (free(stash), *stash = NULL, NULL);
 
     This saves a lot of lines.
+12. Suggest better solutions in terms of maintainability and DRY coding.
