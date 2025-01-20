@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 17:14:26 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/18 18:46:23 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/20 13:14:17 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,29 +21,18 @@
 
 // minilibx
 # include "../minilibx_linux/mlx.h"
-# include "../minilibx_macos/mlx.h"
 
 // ft_printf
 # include "../ft_printf/ft_printf.h"
 
-// X11 events (only for Linux)
-# ifdef __linux__
-#  include <X11/X.h>
-#  include <X11/keysym.h>
-# endif
+// X11 events
+# include <X11/X.h>
+# include <X11/keysym.h>
 
-// Different key code definitions for both systems
-# ifdef __APPLE__ // macOS
-#  define KEY_W 13
-#  define KEY_A 0
-#  define KEY_S 1
-#  define KEY_D 2
-# elif __linux__ // Linux
-#  define KEY_W 119
-#  define KEY_A 97
-#  define KEY_S 115
-#  define KEY_D 100
-# endif
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
 
 // Sprites
 # define SPRITE_SIZE 50

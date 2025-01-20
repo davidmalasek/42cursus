@@ -6,24 +6,14 @@
 #    By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/18 19:30:39 by dmalasek          #+#    #+#              #
-#    Updated: 2025/01/18 19:30:42 by dmalasek         ###   ########.fr        #
+#    Updated: 2025/01/20 13:33:46 by dmalasek         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CHECK_OS = $(shell uname -s)
-
-ifeq ($(CHECK_OS), Darwin)
-	CC = clang
-	CFLAGS = -Wall -Werror -Wextra -Iinclude -g -D__APPLE__ -DGL_SILENCE_DEPRECATION
-	MLX_DIR = minilibx_macos
-	FRAMEWORKS = -framework OpenGL -framework AppKit
-	LIBS = -L$(MLX_DIR) -lmlx $(FRAMEWORKS)
-else
-	CC = cc
-	CFLAGS = -Wall -Werror -Wextra -Iinclude -g -D__linux__
-	MLX_DIR = minilibx_linux
-	LIBS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm -lz
-endif
+CC = cc
+CFLAGS = -Wall -Werror -Wextra -Iinclude -g -D__linux__
+MLX_DIR = minilibx_linux
+LIBS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm -lz
 
 # Source files
 SRC = file.c main.c map.c utils.c valid.c render.c logic.c valid2.c utils2.c deinit.c

@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 12:49:21 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/18 19:01:28 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/20 13:31:20 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(void)
 	void			*mlx;
 	void			*mlx_win;
 
-	file_content = read_from_file("./maps/map2.ber");
+	file_content = read_from_file("./maps/map1.ber");
 	if (is_map_valid(file_content))
 		map_obj = init_map(file_content);
 	else
