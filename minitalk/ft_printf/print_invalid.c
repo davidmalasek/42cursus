@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   print_invalid.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/16 16:31:40 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/16 16:54:23 by davidmalase      ###   ########.fr       */
+/*   Created: 2024/10/03 10:46:06 by dmalasek          #+#    #+#             */
+/*   Updated: 2024/10/03 10:53:06 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "ft_printf.h"
 
-int	main(void)
+void	print_invalid(const char *format, int *count)
 {
-	pid_t PID;
-
-	PID = getpid();
-	printf("My PID: %d\n", PID);
+	ft_putchar_fd('%', 1, count);
+	ft_putchar_fd(*format, 1, count);
 }

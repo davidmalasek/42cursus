@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   print_char.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/16 16:53:38 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/16 16:54:19 by davidmalase      ###   ########.fr       */
+/*   Created: 2024/10/02 20:23:55 by davidmalase       #+#    #+#             */
+/*   Updated: 2024/10/05 12:14:59 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
+#include "ft_printf.h"
 
-#define MINITALK_H
+void	print_char(va_list *args, int *count)
+{
+	int	character;
 
-#include <stdio.h>
-#include <unistd.h>
-
-#endif
+	character = va_arg(*args, int);
+	ft_putchar_fd(character, 1, count);
+}
