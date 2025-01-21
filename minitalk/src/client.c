@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:31:37 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/20 17:57:54 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/21 15:43:52 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ char	*ascii_to_binary(int ascii)
 	}
 	return (binary);
 }
+
 /**
  * Frees binary variable from send_string(), prints error message and exits.
  */
@@ -70,14 +71,13 @@ void	send_string(pid_t pid, char *string)
 				if (kill(pid, SIGUSR2))
 					failed_kill(binary);
 			}
-			usleep(100);
+			usleep(400);
 			i++;
 		}
 		free(binary);
 		string++;
 	}
 }
-// TODO: maybe use sigemptyset() + sigaddset()?
 
 int	main(int argc, char *argv[])
 {
