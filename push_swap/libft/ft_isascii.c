@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_str.c                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 19:41:08 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/10/05 12:24:28 by davidmalase      ###   ########.fr       */
+/*   Created: 2024/09/16 12:40:59 by dmalasek          #+#    #+#             */
+/*   Updated: 2024/09/30 16:16:43 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+/*
+** ft_isascii
+** Checks if the character is an ASCII value
+*/
 
-void	print_str(va_list *args, int *count)
+#include "libft.h"
+
+int	ft_isascii(int character)
 {
-	char	*str;
-
-	str = va_arg(*args, char *);
-	if (str == NULL)
-		str = "(null)";
-	ft_putstr_fd(str, 1, count);
+	if ((character >= 0 && character <= 127))
+		return (1);
+	else
+		return (0);
 }

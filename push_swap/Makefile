@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+         #
+#    By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 16:14:47 by dmalasek          #+#    #+#              #
-#    Updated: 2025/01/21 16:03:27 by dmalasek         ###   ########.fr        #
+#    Updated: 2025/01/21 19:49:44 by davidmalase      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,41 +15,41 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
 # Source files
-SRC = src/push_swap.c
+SRC = src/push_swap.c src/utils.c
 
-# Output binaries
+# Output
 NAME = push_swap
 
 # Library paths
-PRINTF_DIR = ft_printf
-PRINTF_LIB = $(PRINTF_DIR)/ft_printf.a
+LIBFT_DIR = libft
+LIBFT_LIB = $(LIBFT_DIR)/libft.a
 
 # Object files
 OBJ = $(SRC:.c=.o)
 
-
 # Rules
 all: $(NAME)
 
-$(NAME): $(PRINTF_LIB) $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(PRINTF_LIB)
+$(NAME): $(LIBFT_LIB) $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT_LIB)
 
-# Build ft_printf
-$(PRINTF_LIB):
-	$(MAKE) -C $(PRINTF_DIR)
+# Build libft
+$(LIBFT_LIB):
+	$(MAKE) -C $(LIBFT_DIR)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
-	$(MAKE) -C $(PRINTF_DIR) clean
+	$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
-	$(MAKE) -C $(PRINTF_DIR) fclean
+	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
 .PHONY: all clean fclean re
+
 

@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_char.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 20:23:55 by davidmalase       #+#    #+#             */
-/*   Updated: 2024/10/05 12:14:59 by davidmalase      ###   ########.fr       */
+/*   Created: 2025/01/10 16:54:48 by dmalasek          #+#    #+#             */
+/*   Updated: 2025/01/10 16:54:50 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-void	print_char(va_list *args, int *count)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int	character;
+	int	index;
 
-	character = va_arg(*args, int);
-	ft_putchar_fd(character, 1, count);
+	index = 0;
+	while (s1[index] != '\0' || s2[index] != '\0')
+	{
+		if (s1[index] != s2[index])
+		{
+			return (s1[index] - s2[index]);
+		}
+		index++;
+	}
+	return (0);
 }

@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_uint.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/03 09:33:23 by dmalasek          #+#    #+#             */
-/*   Updated: 2024/10/05 12:28:58 by davidmalase      ###   ########.fr       */
+/*   Created: 2024/09/26 11:58:32 by dmalasek          #+#    #+#             */
+/*   Updated: 2024/09/30 16:18:51 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+/*
+** ft_lstdelone
+** Deletes and frees a single element of a linked list
+*/
 
-void	print_uint(va_list *args, int *count)
+#include "libft.h"
+
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	unsigned int	unsigned_int;
-
-	unsigned_int = va_arg(*args, unsigned int);
-	ft_putunbr_fd(unsigned_int, 1, count);
+	if (lst == NULL || del == NULL)
+		return ;
+	(*del)(lst->content);
+	free(lst);
 }

@@ -3,15 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:03:57 by dmalasek          #+#    #+#             */
-/*   Updated: 2025/01/21 16:13:22 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/21 21:47:50 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(void)
+#include "../include/push_swap.h"
+
+// TODO: Not working
+int	check_input(int argc, char **argv)
 {
+	int		i;
+	int		e;
+	char	*memory[argc - 1];
+	int		items_in_memory;
+
+	items_in_memory = 0;
+	if (argc == 1)
+		return (0);
+	i = 1;
+	while (i < argc)
+	{
+		if (!is_integer(argv[i])
+			|| !is_in_int_range((long long)ft_atoi(argv[i])))
+			return (0);
+		e = 0;
+		while (e < items_in_memory)
+		{
+			if (ft_strcmp(memory[e], argv[i]) == 0)
+				return (0);
+			e++;
+		}
+		memory[items_in_memory] = argv[i];
+		items_in_memory++;
+		i++;
+	}
+	return (1);
+}
+
+int	main(int argc, char **argv)
+{
+	if (!check_input(argc, argv))
+		ft_putstr_fd("Error\n", 2);
 }
 
 /*
