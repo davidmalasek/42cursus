@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:31:37 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/21 15:43:52 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/22 11:30:53 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,31 +89,3 @@ int	main(int argc, char *argv[])
 		exit(-1);
 	}
 }
-
-/*
-97 : 2 = 48 (1)
-48 : 2 = 24 (0)
-24 : 2 = 12 (0)
-12 : 2 = 6  (0)
-6  : 2 = 3  (0)
-3  : 2 = 1  (1)
-1  : 2 = 0  (1)
-
-4 : 2 = 2 (0)
-2 : 2 = 1 (0)
-1 : 2 = 0 (1)
-
-97 in binary is 1100001
-
-
-
-
-*/
-
-// a 97 in ascii
-
-/*
-TODO:
-- replace ft_printf with ft_ft_printf
-- free everything
-*/
