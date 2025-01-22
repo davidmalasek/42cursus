@@ -3,25 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:45:10 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/21 21:28:44 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/22 12:01:51 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	is_in_int_range(long long n)
-{
-	long long	min;
-	long long	max;
+/**
 
-	min = -2147483648LL;
-	max = 2147483647LL;
-	if (n < min || n > max)
-		return (0);
-	return (1);
+	* Works as ordinary ft_atoi and returns an error if the number is larger of smaller than int range.
+ */
+int	ft_safe_atoi(const char *str, int *error)
+{
+	long	result;
+	int		positive;
+
+	positive = 1;
+	result = 0;
+	*error = 0;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	if (*str == '+' || *str == '-')
+	{
+		if (*str == '-')
+			positive = -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		result = result * 10 + (*str - '0');
+		if ((result * positive) > 2147483647 || (result * positive) <
+			-2147483648)
+			return (*error = 1, 0);
+		str++;
+	}
+	if (*str != '\0')
+		*error = 1;
+	return ((int)(result * positive));
 }
 
 int	is_integer(const char *str)

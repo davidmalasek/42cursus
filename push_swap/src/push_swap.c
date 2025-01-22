@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:03:57 by dmalasek          #+#    #+#             */
-/*   Updated: 2025/01/21 21:47:50 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/22 12:00:55 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-// TODO: Not working
 int	check_input(int argc, char **argv)
 {
 	int		i;
 	int		e;
 	char	*memory[argc - 1];
 	int		items_in_memory;
+	int		error;
 
 	items_in_memory = 0;
 	if (argc == 1)
@@ -26,8 +26,8 @@ int	check_input(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		if (!is_integer(argv[i])
-			|| !is_in_int_range((long long)ft_atoi(argv[i])))
+		ft_safe_atoi(argv[i], &error);
+		if (!is_integer(argv[i]) || error)
 			return (0);
 		e = 0;
 		while (e < items_in_memory)

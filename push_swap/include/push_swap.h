@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:41:01 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/21 21:28:24 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/22 13:32:37 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,13 @@
 // Libft
 # include "../libft/libft.h"
 
+typedef struct s_stack
+{
+	int data[]
+}
+
 // Utils
 int	is_integer(const char *str);
-int	is_in_int_range(long long n);
+int	ft_safe_atoi(const char *str, int *error);
 
 #endif
