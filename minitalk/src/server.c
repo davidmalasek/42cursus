@@ -6,14 +6,13 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:31:40 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/21 15:45:10 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/24 16:51:29 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minitalk.h"
 
-// 8 bits + null terminator
-char	g_buffer[9];
+t_buffer	*g_buffer;
 
 /**
  * Converts 8 characters (~ 8 bits) into character according to ASCII.
@@ -32,51 +31,92 @@ char	binary_to_character(char *string)
 	}
 	return ((char)ascii);
 }
-
 /**
- * Resets buffer after it was filled with 8 bits.
+ * Checks whether the buffer is not full.
+ * If the buffer is full, it reallocates it.
  */
-void	reset_buffer(void)
+void	handle_buffer(void)
 {
-	int	i;
+	char	*new_data;
+	int		last_size;
 
-	i = 0;
-	while (i < 9)
-		g_buffer[i++] = '\0';
+	if (ft_strlen(g_buffer->data) == (size_t)g_buffer->size)
+	{
+		last_size = g_buffer->size;
+		new_data = (char *)malloc(last_size * 2);
+		if (!new_data)
+		{
+			write(2, "Memory allocation failed\n", 25);
+			exit(1);
+		}
+		ft_strcpy(new_data, g_buffer->data);
+		free(g_buffer->data);
+		g_buffer->data = new_data;
+		g_buffer->size = last_size * 2;
+	}
 }
 
 /**
- * Handles incoming signals,
-	accumulates bits and prints corresponding character.
+ * Initializes buffer to starting size.
  */
-void	print_decoded_character(int signal)
+void	init_buffer(void)
 {
-	char	*index;
-	char	output;
-
-	if (signal == SIGUSR1 || signal == SIGUSR2)
+	g_buffer = malloc(sizeof(t_buffer));
+	if (!g_buffer)
 	{
-		index = ft_strchr(g_buffer, '\0');
-		if (signal == SIGUSR1)
-			*index = '1';
-		else if (signal == SIGUSR2)
-			*index = '0';
-		*++index = '\0';
+		write(2, "Memory allocation failed\n", 25);
+		exit(1);
 	}
-	if (ft_strlen(g_buffer) == 8)
+	g_buffer->data = (char *)malloc(1025);
+	if (!g_buffer->data)
 	{
-		output = binary_to_character(g_buffer);
-		write(1, &output, 1);
-		reset_buffer();
+		write(2, "Memory allocation failed\n", 25);
+		exit(1);
+	}
+	g_buffer->size = 1025;
+	g_buffer->data[0] = '\0';
+	ft_printf("Buffer initialized: %s, size: %d\n", g_buffer->data,
+		g_buffer->size);
+}
+
+void	handle_signal(int signal)
+{
+	int			len;
+	static int	bit_index = 0;
+	static char	current_char = 0;
+
+	if (signal == SIGUSR1)
+		current_char |= (1 << (7 - bit_index));
+	bit_index++;
+	if (signal == SIGUSR1)
+		ft_printf("Received SIGUSR1 (1)\n");
+	else if (signal == SIGUSR2)
+		ft_printf("Received SIGUSR2 (0)\n");
+	ft_printf("Current char so far: %c\n", current_char);
+	if (bit_index == 8)
+	{
+		handle_buffer();
+		len = ft_strlen(g_buffer->data);
+		g_buffer->data[len] = current_char;
+		g_buffer->data[len + 1] = '\0';
+		if (current_char == '\0')
+		{
+			ft_printf("Null terminator detected\n");
+			write(1, g_buffer->data, len);
+			write(1, "\n", 1);
+			g_buffer->data[0] = '\0';
+		}
+		current_char = 0;
+		bit_index = 0;
 	}
 }
 
 int	main(void)
 {
 	ft_printf("PID: %d\n", getpid());
-	g_buffer[0] = '\0';
-	signal(SIGUSR1, print_decoded_character);
-	signal(SIGUSR2, print_decoded_character);
+	init_buffer();
+	signal(SIGUSR1, handle_signal);
+	signal(SIGUSR2, handle_signal);
 	while (1)
 		pause();
 }

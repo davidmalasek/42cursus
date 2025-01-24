@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:31:37 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/22 11:30:53 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/24 16:48:01 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,17 @@ void	send_string(pid_t pid, char *string)
 		string++;
 	}
 }
+/**
 
+	* Sends the string from standart input along with null terminator to indicate the end of string.
+ */
 int	main(int argc, char *argv[])
 {
 	if (argc == 3)
+	{
 		send_string(ft_atoi(argv[1]), argv[2]);
+		send_string(ft_atoi(argv[1]), "\0");
+	}
 	else
 	{
 		ft_printf("Error: this program expects 2 arguments\n");

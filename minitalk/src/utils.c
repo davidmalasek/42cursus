@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:20:16 by dmalasek          #+#    #+#             */
-/*   Updated: 2025/01/21 14:37:21 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:02:15 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,18 @@ char	*ft_strchr(const char *string, int character)
 	if (unsigned_char == '\0')
 		return ((char *)string);
 	return (NULL);
+}
+
+char	*ft_strcpy(char *dest, char *src)
+{
+	int	index;
+
+	index = 0;
+	while (src[index] != '\0')
+	{
+		dest[index] = src[index];
+		index++;
+	}
+	dest[index] = '\0';
+	return (dest);
 }
