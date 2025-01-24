@@ -21,3 +21,4 @@
 
     This saves a lot of lines.
 12. Suggest better solutions in terms of maintainability and DRY coding.
+13. Coding projects are part of 42 Network.
