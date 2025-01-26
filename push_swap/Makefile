@@ -6,7 +6,7 @@
 #    By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 16:14:47 by dmalasek          #+#    #+#              #
-#    Updated: 2025/01/26 14:53:14 by davidmalase      ###   ########.fr        #
+#    Updated: 2025/01/26 19:03:13 by davidmalase      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,10 +34,10 @@ OBJ = $(SRC:src/%.c=$(OBJ_DIR)/%.o)
 # Rules
 all: $(NAME)
 
-$(NAME): $(LIBFT_LIB) $(OBJ)
+$(NAME): $(OBJ) $(LIBFT_LIB)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT_LIB)
 
-# Only rebuild libft when necessary
+# Only rebuild libft when the library has changed
 $(LIBFT_LIB):
 	$(MAKE) -C $(LIBFT_DIR)
 
@@ -54,10 +54,11 @@ clean:
 	rm -rf $(OBJ_DIR)
 	$(MAKE) -C $(LIBFT_DIR) clean
 
-fclean: clean
+fclean:
+	rm -rf $(OBJ_DIR)
 	rm -f $(NAME)
 	$(MAKE) -C $(LIBFT_DIR) fclean
 
-re: fclean all
+re: $(NAME)
 
 .PHONY: all clean fclean re

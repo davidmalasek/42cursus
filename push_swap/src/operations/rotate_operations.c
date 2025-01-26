@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:05:07 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/26 15:22:35 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/26 19:09:59 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
  * Shifts up all elements of stack a by 1.
  * The first element becomes the last one.
  */
+// TODO: probably not working
 void	ra(t_stack *stack_a)
 {
 	int	temp;
@@ -38,6 +39,7 @@ void	ra(t_stack *stack_a)
  * Shifts up all elements of stack b by 1.
  * The first element becomes the last one.
  */
+// TODO: probably not working
 void	rb(t_stack *stack_b)
 {
 	int	temp;

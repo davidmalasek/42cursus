@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:03:57 by dmalasek          #+#    #+#             */
-/*   Updated: 2025/01/26 14:54:53 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/26 18:59:28 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ int	main(int argc, char **argv)
 	print_stacks(stack_a, stack_b);
 	ra(stack_a);
 	print_stacks(stack_a, stack_b);
+	pb(stack_a, stack_b);
+	print_stacks(stack_a, stack_b);
+	free_stack(stack_a);
+	free_stack(stack_b);
 }
 
 /*

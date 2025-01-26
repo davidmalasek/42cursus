@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 12:14:14 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/26 14:21:36 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/26 18:56:57 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,9 @@ void	push_to_stack(t_stack *stack, int value)
 
 int	pop(t_stack *stack)
 {
-	int	value;
-
 	if (is_empty(stack))
 		return (-1);
-	value = stack->data[stack->top];
-	stack->top--;
-	return (value);
+	return (stack->data[stack->top--]);
 }
 
 int	peek(t_stack *stack)
