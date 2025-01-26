@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:31:40 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/24 16:51:29 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/26 12:04:22 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ char	binary_to_character(char *string)
 	}
 	return ((char)ascii);
 }
+
 /**
  * Checks whether the buffer is not full.
  * If the buffer is full, it reallocates it.
@@ -75,24 +76,19 @@ void	init_buffer(void)
 	}
 	g_buffer->size = 1025;
 	g_buffer->data[0] = '\0';
-	ft_printf("Buffer initialized: %s, size: %d\n", g_buffer->data,
-		g_buffer->size);
 }
 
 void	handle_signal(int signal)
 {
 	int			len;
-	static int	bit_index = 0;
-	static char	current_char = 0;
+	static int	bit_index;
+	static char	current_char;
 
+	bit_index = 0;
+	current_char = 0;
 	if (signal == SIGUSR1)
 		current_char |= (1 << (7 - bit_index));
 	bit_index++;
-	if (signal == SIGUSR1)
-		ft_printf("Received SIGUSR1 (1)\n");
-	else if (signal == SIGUSR2)
-		ft_printf("Received SIGUSR2 (0)\n");
-	ft_printf("Current char so far: %c\n", current_char);
 	if (bit_index == 8)
 	{
 		handle_buffer();
@@ -101,9 +97,7 @@ void	handle_signal(int signal)
 		g_buffer->data[len + 1] = '\0';
 		if (current_char == '\0')
 		{
-			ft_printf("Null terminator detected\n");
 			write(1, g_buffer->data, len);
-			write(1, "\n", 1);
 			g_buffer->data[0] = '\0';
 		}
 		current_char = 0;

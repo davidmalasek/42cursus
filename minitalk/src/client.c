@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:31:37 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/24 16:48:01 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/26 12:04:10 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	send_string(pid_t pid, char *string)
 	char	*binary;
 	int		i;
 
-	while (*string)
+	while (1)
 	{
 		binary = ascii_to_binary((int)*string);
 		i = 0;
@@ -66,21 +66,21 @@ void	send_string(pid_t pid, char *string)
 				if (kill(pid, SIGUSR1) == -1)
 					failed_kill(binary);
 			}
-			else
-			{
-				if (kill(pid, SIGUSR2))
-					failed_kill(binary);
-			}
-			usleep(400);
+			else if (kill(pid, SIGUSR2) == -1)
+				failed_kill(binary);
+			usleep(200);
 			i++;
 		}
 		free(binary);
+		if (*string == '\0')
+			break ;
 		string++;
 	}
 }
-/**
 
-	* Sends the string from standart input along with null terminator to indicate the end of string.
+/**
+ * Sends the string from standart input along with
+ * null terminator to indicate the end of string.
  */
 int	main(int argc, char *argv[])
 {
