@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 16:03:57 by dmalasek          #+#    #+#             */
-/*   Updated: 2025/01/26 14:54:53 by davidmalase      ###   ########.fr       */
+/*   Created: 2025/01/26 14:52:35 by davidmalase       #+#    #+#             */
+/*   Updated: 2025/01/26 14:58:18 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-int	main(int argc, char **argv)
+void	calculate(t_stack stack_a)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-
-	check_input(argc, argv);
-	stack_a = create_stack(argc - 1);
-	stack_b = create_stack(argc - 1);
-	fill_stack(stack_a, argv);
-	print_stacks(stack_a, stack_b);
-	ra(stack_a);
-	print_stacks(stack_a, stack_b);
 }
 
-/*
-TODO:
-- remove printf everywhere
-*/
+void	sort(t_stack *stack_a, t_stack *stack_b)
+{
+	pb(stack_a, stack_b);
+	pb(stack_a, stack_b);
+}

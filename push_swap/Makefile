@@ -6,7 +6,7 @@
 #    By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 16:14:47 by dmalasek          #+#    #+#              #
-#    Updated: 2025/01/21 19:49:44 by davidmalase      ###   ########.fr        #
+#    Updated: 2025/01/26 14:53:14 by davidmalase      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,10 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
 # Source files
-SRC = src/push_swap.c src/utils.c
+SRC = src/push_swap.c src/utils/utils.c src/stack/stack.c src/stack/stack_utils.c \
+	  src/validation/validation.c src/operations/push_operations.c src/operations/rotate_operations.c \
+	  src/operations/reverse_rotate_operations.c src/operations/swap_operations.c \
+	  src/sort/sort.c src/helper/helper.c
 
 # Output
 NAME = push_swap
@@ -24,8 +27,9 @@ NAME = push_swap
 LIBFT_DIR = libft
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
 
-# Object files
-OBJ = $(SRC:.c=.o)
+# Temporary directory for object files
+OBJ_DIR = build
+OBJ = $(SRC:src/%.c=$(OBJ_DIR)/%.o)
 
 # Rules
 all: $(NAME)
@@ -33,15 +37,21 @@ all: $(NAME)
 $(NAME): $(LIBFT_LIB) $(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT_LIB)
 
-# Build libft
+# Only rebuild libft when necessary
 $(LIBFT_LIB):
 	$(MAKE) -C $(LIBFT_DIR)
 
-%.o: %.c
+# Rule to compile .c files into .o files inside the temporary directory
+$(OBJ_DIR)/%.o: src/%.c | $(OBJ_DIR)
+	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+# Ensure the build directory exists
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
+
 clean:
-	rm -f $(OBJ)
+	rm -rf $(OBJ_DIR)
 	$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
@@ -51,5 +61,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-
-

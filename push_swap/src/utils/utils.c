@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:45:10 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/22 12:01:51 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/01/26 14:21:39 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 /**
-
-	* Works as ordinary ft_atoi and returns an error if the number is larger of smaller than int range.
+ * Works as ordinary ft_atoi and returns an
+ * error if the number is larger of smaller than int range.
  */
 int	ft_safe_atoi(const char *str, int *error)
 {

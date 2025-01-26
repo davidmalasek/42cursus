@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   helper.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 16:03:57 by dmalasek          #+#    #+#             */
+/*   Created: 2025/01/26 14:51:58 by davidmalase       #+#    #+#             */
 /*   Updated: 2025/01/26 14:54:53 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-int	main(int argc, char **argv)
+void	print_stack(t_stack *stack)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	int	i;
 
-	check_input(argc, argv);
-	stack_a = create_stack(argc - 1);
-	stack_b = create_stack(argc - 1);
-	fill_stack(stack_a, argv);
-	print_stacks(stack_a, stack_b);
-	ra(stack_a);
-	print_stacks(stack_a, stack_b);
+	i = 0;
+	while (i <= stack->top)
+	{
+		printf("%d ", stack->data[i]);
+		i++;
+	}
 }
 
-/*
-TODO:
-- remove printf everywhere
-*/
+void	print_stacks(t_stack *stack_a, t_stack *stack_b)
+{
+	printf("\n-------------\n");
+	printf("STACK A:\n");
+	print_stack(stack_a);
+	printf("\n");
+	printf("STACK B:\n");
+	print_stack(stack_b);
+	printf("\n-------------\n");
+}
