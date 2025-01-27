@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 12:14:14 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/27 10:15:07 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/27 16:58:32 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,6 @@ int	pop(t_stack *stack)
 	if (is_empty(stack))
 		return (-1);
 	return (stack->data[stack->top--]);
-}
-
-int	peek(t_stack *stack)
-{
-	if (is_empty(stack))
-		return (-1);
-	return (stack->data[stack->top]);
 }
 
 void	free_stacks(t_stack *stack_a, t_stack *stack_b)
