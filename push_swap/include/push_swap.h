@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:41:01 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/26 14:54:53 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/27 12:39:55 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_stack	*create_stack(int capacity);
 void	push_to_stack(t_stack *stack, int value);
 int		pop(t_stack *stack);
 int		peek(t_stack *stack);
-void	free_stack(t_stack *stack);
+void	free_stacks(t_stack *stack_a, t_stack *stack_b);
 
 // Stack utils
 int		is_full(t_stack *stack);

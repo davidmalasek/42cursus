@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:51:58 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/26 18:54:11 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/27 10:17:03 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ void	print_stacks(t_stack *stack_a, t_stack *stack_b)
 	printf("\n-------------\n");
 	print_stack(stack_a, "STACK A");
 	print_stack(stack_b, "STACK B");
-	printf("-------------\n");
+	printf("-------------\n\n");
 }

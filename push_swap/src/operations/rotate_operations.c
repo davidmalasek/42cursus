@@ -6,32 +6,39 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:05:07 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/26 19:09:59 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/27 10:34:45 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
 /**
- * Shifts up all elements of stack a by 1.
- * The first element becomes the last one.
+ * Universal rotate function that does not print anything.
  */
-// TODO: probably not working
-void	ra(t_stack *stack_a)
+void	rotate(t_stack *stack)
 {
 	int	temp;
 	int	i;
 
-	if (is_empty(stack_a) || stack_a->top == 0)
+	if (is_empty(stack) || stack->top == 0)
 		return ;
-	temp = stack_a->data[0];
-	i = 0;
-	while (i < stack_a->top)
+	temp = stack->data[stack->top];
+	i = stack->top;
+	while (i > 0)
 	{
-		stack_a->data[i] = stack_a->data[i + 1];
-		i++;
+		stack->data[i] = stack->data[i - 1];
+		i--;
 	}
-	stack_a->data[stack_a->top] = temp;
+	stack->data[0] = temp;
+}
+
+/**
+ * Shifts up all elements of stack a by 1.
+ * The first element becomes the last one.
+ */
+void	ra(t_stack *stack_a)
+{
+	rotate(stack_a);
 	write(1, "ra\n", 3);
 }
 
@@ -39,31 +46,19 @@ void	ra(t_stack *stack_a)
  * Shifts up all elements of stack b by 1.
  * The first element becomes the last one.
  */
-// TODO: probably not working
 void	rb(t_stack *stack_b)
 {
-	int	temp;
-	int	i;
-
-	if (is_empty(stack_b) || stack_b->top == 0)
-		return ;
-	temp = stack_b->data[0];
-	i = 0;
-	while (i < stack_b->top)
-	{
-		stack_b->data[i] = stack_b->data[i + 1];
-		i++;
-	}
-	stack_b->data[stack_b->top] = temp;
+	rotate(stack_b);
 	write(1, "rb\n", 3);
 }
 
 /**
  * ra and rb at the same time.
  */
+// TODO: This will not works since ra and rb will print on their own.
 void	rr(t_stack *stack_a, t_stack *stack_b)
 {
-	ra(stack_a);
-	rb(stack_b);
+	rotate(stack_a);
+	rotate(stack_b);
 	write(1, "rr\n", 3);
 }

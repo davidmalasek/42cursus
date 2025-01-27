@@ -6,11 +6,31 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 13:07:18 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/26 15:22:13 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/27 10:32:19 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+/**
+ * Universal reverse_rotate function that does not print anything.
+ */
+void	reverse_rotate(t_stack *stack)
+{
+	int	temp;
+	int	i;
+
+	if (is_empty(stack) || stack->top == 0)
+		return ;
+	temp = stack->data[0];
+	i = 0;
+	while (i < stack->top)
+	{
+		stack->data[i] = stack->data[i + 1];
+		i++;
+	}
+	stack->data[stack->top] = temp;
+}
 
 /**
  * Shifts down all elements of stack a by 1.
@@ -18,19 +38,7 @@
  */
 void	rra(t_stack *stack_a)
 {
-	int	temp;
-	int	i;
-
-	if (is_empty(stack_a) || stack_a->top == 0)
-		return ;
-	temp = stack_a->data[stack_a->top];
-	i = stack_a->top;
-	while (i > 0)
-	{
-		stack_a->data[i] = stack_a->data[i - 1];
-		i--;
-	}
-	stack_a->data[0] = temp;
+	reverse_rotate(stack_a);
 	write(1, "rra\n", 4);
 }
 
@@ -40,19 +48,7 @@ void	rra(t_stack *stack_a)
  */
 void	rrb(t_stack *stack_b)
 {
-	int	temp;
-	int	i;
-
-	if (is_empty(stack_b) || stack_b->top == 0)
-		return ;
-	temp = stack_b->data[stack_b->top];
-	i = stack_b->top;
-	while (i > 0)
-	{
-		stack_b->data[i] = stack_b->data[i - 1];
-		i--;
-	}
-	stack_b->data[0] = temp;
+	reverse_rotate(stack_b);
 	write(1, "rrb\n", 4);
 }
 
@@ -61,7 +57,7 @@ void	rrb(t_stack *stack_b)
  */
 void	rrr(t_stack *stack_a, t_stack *stack_b)
 {
-	rra(stack_a);
-	rrb(stack_b);
+	reverse_rotate(stack_a);
+	reverse_rotate(stack_b);
 	write(1, "rrr\n", 4);
 }

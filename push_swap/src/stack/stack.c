@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 12:14:14 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/26 18:56:57 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/27 10:15:07 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,10 @@ int	peek(t_stack *stack)
 	return (stack->data[stack->top]);
 }
 
-void	free_stack(t_stack *stack)
+void	free_stacks(t_stack *stack_a, t_stack *stack_b)
 {
-	free(stack->data);
-	free(stack);
+	free(stack_a->data);
+	free(stack_b->data);
+	free(stack_a);
+	free(stack_b);
 }
