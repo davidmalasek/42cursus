@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:03:57 by dmalasek          #+#    #+#             */
-/*   Updated: 2025/01/28 13:08:25 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/28 20:02:49 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,8 @@ int	main(int argc, char **argv)
 /*
 TODO:
 - remove printf everywhere
+- fix naming
+- docs
+- norminette
+- valgrind
 */

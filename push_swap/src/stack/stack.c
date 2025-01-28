@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 12:14:14 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/27 16:58:32 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/28 17:51:27 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,23 @@ int	pop(t_stack *stack)
 	if (is_empty(stack))
 		return (-1);
 	return (stack->data[stack->top--]);
+}
+/**
+ * Returns 1 if stack is sorted (ascending), otherwise
+ * returns 0.
+ */
+int	is_sorted(t_stack *stack)
+{
+	int	i;
+
+	i = stack->top;
+	while (i > 0)
+	{
+		if (stack->data[i] > stack->data[i - 1])
+			return (0);
+		i--;
+	}
+	return (1);
 }
 
 void	free_stacks(t_stack *stack_a, t_stack *stack_b)
