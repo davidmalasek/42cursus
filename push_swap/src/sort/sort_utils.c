@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 16:03:57 by dmalasek          #+#    #+#             */
-/*   Updated: 2025/01/28 13:08:25 by davidmalase      ###   ########.fr       */
+/*   Created: 2025/01/28 11:48:15 by davidmalase       #+#    #+#             */
+/*   Updated: 2025/01/28 12:42:38 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-int	main(int argc, char **argv)
+void	repeat_for_stack(void (*f)(t_stack *stack), t_stack *stack, int times)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	int	i;
 
-	check_input(argc, argv);
-	stack_a = create_stack(argc - 1);
-	stack_b = create_stack(argc - 1);
-	fill_stack(stack_a, argv);
-	sort(stack_a, stack_b);
-	print_stacks(stack_a, stack_b);
-	free_stacks(stack_a, stack_b);
+	i = 0;
+	while (i < times)
+	{
+		(*f)(stack);
+		i++;
+	}
 }
 
-/*
-TODO:
-- remove printf everywhere
-*/
+void	repeat_for_stacks(void (*f)(t_stack *stack_a, t_stack *stack_b),
+		t_stack *stack_a, t_stack *stack_b, int times)
+{
+	int	i;
+
+	i = 0;
+	while (i < times)
+	{
+		(*f)(stack_a, stack_b);
+		i++;
+	}
+}

@@ -6,7 +6,7 @@
 #    By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 16:14:47 by dmalasek          #+#    #+#              #
-#    Updated: 2025/01/26 19:03:13 by davidmalase      ###   ########.fr        #
+#    Updated: 2025/01/28 13:10:01 by davidmalase      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ CFLAGS = -Wall -Werror -Wextra
 SRC = src/push_swap.c src/utils/utils.c src/stack/stack.c src/stack/stack_utils.c \
 	  src/validation/validation.c src/operations/push_operations.c src/operations/rotate_operations.c \
 	  src/operations/reverse_rotate_operations.c src/operations/swap_operations.c \
-	  src/sort/sort.c src/helper/helper.c
+	  src/sort/sort.c src/helper/helper.c src/sort/calculate.c src/sort/calculate_utils.c \
+	  src/sort/sort_utils.c
 
 # Output
 NAME = push_swap
