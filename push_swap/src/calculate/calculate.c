@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:28:46 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/28 13:08:22 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/29 14:44:09 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
  * Function recognizes situations when function grouping can be used,
  * for example rr(), ss() or rrr().
  */
-int	calculate_current_cheapest_num_of_steps_to_top(t_stack *stack_a,
-		t_stack *stack_b, int index_a, int index_b)
+int	get_steps(t_stack *stack_a, t_stack *stack_b, int index_a, int index_b)
 {
 	int	current_cheapest_num_of_steps;
 
@@ -37,6 +36,15 @@ int	calculate_current_cheapest_num_of_steps_to_top(t_stack *stack_a,
 	return (current_cheapest_num_of_steps + 1);
 }
 
+int	calculate_target_position(t_stack *stack_a, t_stack *stack_b, int index)
+{
+	if (stack_a->data[index] > stack_b->data[get_max(stack_b)]
+		|| stack_a->data[index] < stack_b->data[get_min(stack_b)])
+		return (get_max(stack_b));
+	else
+		return (find_nln(stack_a, stack_b, index));
+}
+
 /**
  * Returns:
  * t_pair.item - an index of a cheapest number in stack_a.
@@ -44,46 +52,32 @@ int	calculate_current_cheapest_num_of_steps_to_top(t_stack *stack_a,
  * A "cheapest number" is a number that needs the least
  * amount of steps to sort it correctly to stack_b.
  */
-// TODO: handle situations when helper functions return error values.
-// TODO: I can probably replace cheapest_pos and sort_Against with the struct
-t_pair	calculate(t_stack *stack_a, t_stack *stack_b)
+
+t_pair	calculate(t_stack *st_a, t_stack *st_b)
 {
 	int		i;
-	int		cheapest_pos;
-	int		cheapest_num_of_steps;
-	int		sort_against;
-	t_pair	sort_pair;
+	int		cheapest_steps;
+	t_pair	pair;
 
-	i = stack_a->top;
-	cheapest_pos = -1;
-	cheapest_num_of_steps = 0;
-	while (i >= 0)
+	i = st_a->top + 1;
+	pair.item = -1;
+	cheapest_steps = 0;
+	while (--i >= 0)
 	{
-		if (stack_a->data[i] > stack_b->data[get_max(stack_b)]
-			|| stack_a->data[i] < stack_b->data[get_min(stack_b)])
+		if (get_steps(st_a, st_b, i, get_max(st_b)) < cheapest_steps
+			|| pair.item == -1)
 		{
-			if (calculate_current_cheapest_num_of_steps_to_top(stack_a, stack_b,
-					i, get_max(stack_b)) < cheapest_num_of_steps
-				|| cheapest_pos == -1)
-			{
-				cheapest_pos = i;
-				cheapest_num_of_steps = calculate_current_cheapest_num_of_steps_to_top(stack_a,
-						stack_b, i, get_max(stack_b));
-				sort_against = get_max(stack_b);
-			}
+			pair.item = i;
+			cheapest_steps = get_steps(st_a, st_b, i, get_max(st_b));
+			pair.target = calculate_target_position(st_a, st_b, i);
 		}
-		else if (calculate_current_cheapest_num_of_steps_to_top(stack_a,
-				stack_b, i, find_nln(stack_a, stack_b,
-					i)) < cheapest_num_of_steps || cheapest_pos == -1)
+		else if (get_steps(st_a, st_b, i, find_nln(st_a, st_b,
+					i)) < cheapest_steps || pair.item == -1)
 		{
-			cheapest_pos = i;
-			cheapest_num_of_steps = calculate_current_cheapest_num_of_steps_to_top(stack_a,
-					stack_b, i, find_nln(stack_a, stack_b, i));
-			sort_against = find_nln(stack_a, stack_b, i);
+			pair.item = i;
+			cheapest_steps = get_steps(st_a, st_b, i, find_nln(st_a, st_b, i));
+			pair.target = calculate_target_position(st_a, st_b, i);
 		}
-		i--;
 	}
-	sort_pair.item = cheapest_pos;
-	sort_pair.target = sort_against;
-	return (sort_pair);
+	return (pair);
 }

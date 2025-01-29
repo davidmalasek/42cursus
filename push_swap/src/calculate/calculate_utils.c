@@ -6,28 +6,11 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:29:31 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/28 19:24:52 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/29 11:40:21 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
-
-/**
- * Returns an index of an item in a stack.
- */
-int	get_item_index(t_stack *stack, int item)
-{
-	int	i;
-
-	i = stack->top;
-	while (i >= 0)
-	{
-		if (stack->data[i] == item)
-			return (i);
-		i--;
-	}
-	return (-1);
-}
 
 /**
  * Returns an index of currently largest number in stack.

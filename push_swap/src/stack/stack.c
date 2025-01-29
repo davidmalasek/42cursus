@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 12:14:14 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/28 17:51:27 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/29 13:15:45 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	pop(t_stack *stack)
 		return (-1);
 	return (stack->data[stack->top--]);
 }
+
 /**
  * Returns 1 if stack is sorted (ascending), otherwise
  * returns 0.

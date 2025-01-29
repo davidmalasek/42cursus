@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:41:01 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/28 18:03:26 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/29 13:53:30 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,19 @@ void	repeat_for_stacks(void (*f)(t_stack *stack_a, t_stack *stack_b),
 t_pair	calculate(t_stack *stack_a, t_stack *stack_b);
 
 // Calculate utils
-int		get_item_index(t_stack *stack, int item);
 int		get_max(t_stack *stack);
 int		get_min(t_stack *stack);
 int		steps_to_top(t_stack *stack, int item_index);
 int		find_nln(t_stack *stack_a, t_stack *stack_b, int number_index);
 int		find_nbn(t_stack *stack, t_stack *target_stack, int number_index);
 
-// Input validation
+// Validation
 void	check_input(int argc, char **argv);
+
+// Validation utils
+char	**allocate_and_validate_memory(int argc);
+void	free_memory(char **memory, int items);
+void	throw_error(char **memory, int items);
 
 // Stack
 t_stack	*create_stack(int capacity);

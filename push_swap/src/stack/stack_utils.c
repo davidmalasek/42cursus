@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 12:22:39 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/26 18:55:52 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/29 13:15:53 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	is_empty(t_stack *stack)
 {
 	return (stack->top == -1);
 }
+
 /**
  * Fills stack with int arguments from input.
  * Automatically skips 1st parameter - ./push_swap

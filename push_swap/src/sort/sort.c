@@ -6,53 +6,59 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:52:35 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/28 20:20:17 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/29 14:51:51 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-// TODO: fix naming
-// fix when using the function the other way around (from stack_b to stack_a),
-// it incorrectly prints the operations.
+/**
+ * Rotates original stack and target stack in order to bring items
+ * that resulted as "cheapest" to the top.
+ * If reverse = 1, function will print operations according to sorting
+ * from stack_b to stack_a.
+ */
 void	sort_item(t_stack *original_stack, t_stack *target_stack,
-		t_pair indexes)
+		t_pair indexes, int reverse)
 {
 	int	times;
 
-	// If is cheaper to rotate
 	if (indexes.item + 1 > original_stack->top - indexes.item)
 		times = original_stack->top - indexes.item;
-	// If is cheaper to reverse rotate
 	else
 		times = indexes.item + 1;
 	if (steps_to_top(original_stack, indexes.item) == steps_to_top(target_stack,
 			indexes.target))
 	{
-		// If they have the same relative distance from top
 		if ((original_stack->top - indexes.item == target_stack->top
 				- indexes.target))
 			repeat_for_stacks(rr, original_stack, target_stack, times);
-		// If they have the same distance from bottom
 		else if (indexes.item == indexes.target)
 			repeat_for_stacks(rrr, original_stack, target_stack, times);
 	}
 	else
 	{
-		// For original_stack
 		if (indexes.item + 1 > original_stack->top - indexes.item)
-			repeat_for_stack(ra, original_stack, times);
+			if (reverse)
+				repeat_for_stack(rb, original_stack, times);
+			else
+				repeat_for_stack(ra, original_stack, times);
+		else if (reverse)
+			repeat_for_stack(rrb, original_stack, times);
 		else
 			repeat_for_stack(rra, original_stack, times);
-		// For target_stack
 		if (indexes.target + 1 > target_stack->top - indexes.target)
 			repeat_for_stack(rb, target_stack, target_stack->top
 				- indexes.target);
+		else if (reverse)
+			repeat_for_stack(rra, target_stack, indexes.target + 1);
 		else
 			repeat_for_stack(rrb, target_stack, indexes.target + 1);
 	}
 }
-
+/**
+ * Sorts stack_a since there are only 3 items.
+ */
 void	sort_stack_a(t_stack *stack_a)
 {
 	int	top;
@@ -72,7 +78,10 @@ void	sort_stack_a(t_stack *stack_a)
 			sa(stack_a);
 	}
 }
-
+/**
+ * Pushes items from stack_a to corresponding location in
+ * stack_a.
+ */
 void	sort_to_stack_a(t_stack *stack_a, t_stack *stack_b)
 {
 	t_pair	pair;
@@ -84,11 +93,15 @@ void	sort_to_stack_a(t_stack *stack_a, t_stack *stack_b)
 			pair.target = get_min(stack_a);
 		else
 			pair.target = find_nbn(stack_b, stack_a, stack_b->top);
-		sort_item(stack_b, stack_a, pair);
+		sort_item(stack_b, stack_a, pair, 1);
 		pa(stack_a, stack_b);
 	}
 }
 
+/**
+ * Continuously rotates stack_a in order to achieve
+ * ascending order of items.
+ */
 void	final_sort(t_stack *stack_a)
 {
 	if (get_min(stack_a) + 1 > stack_a->top - get_min(stack_a))
@@ -97,25 +110,32 @@ void	final_sort(t_stack *stack_a)
 		repeat_for_stack(rra, stack_a, get_min(stack_a) + 1);
 }
 
-/*
-TODO:
-before sorting, check, if there are only 3 items. If yes, no need to use the
-stack_b, as explained in the article.
-*/
+/**
+ * Handles sorting. Acts according to number of
+ * items in the stack_a.
+ */
 void	sort(t_stack *stack_a, t_stack *stack_b)
 {
 	t_pair	calculate_value;
 
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	// While there are more than 3 items in stack_a, push to stack_b
-	while (stack_a->top > 2)
+	if (stack_a->top == 0 || (stack_a->top == 1 && is_sorted(stack_a)))
+		return ;
+	else if (stack_a->top == 1 && !is_sorted(stack_a))
+		ra(stack_a);
+	else if (stack_a->top == 2)
+		sort_stack_a(stack_a);
+	else
 	{
-		calculate_value = calculate(stack_a, stack_b);
-		sort_item(stack_a, stack_b, calculate_value);
 		pb(stack_a, stack_b);
+		pb(stack_a, stack_b);
+		while (stack_a->top > 2)
+		{
+			calculate_value = calculate(stack_a, stack_b);
+			sort_item(stack_a, stack_b, calculate_value, 0);
+			pb(stack_a, stack_b);
+		}
+		sort_stack_a(stack_a);
+		sort_to_stack_a(stack_a, stack_b);
+		final_sort(stack_a);
 	}
-	sort_stack_a(stack_a);
-	sort_to_stack_a(stack_a, stack_b);
-	final_sort(stack_a);
 }

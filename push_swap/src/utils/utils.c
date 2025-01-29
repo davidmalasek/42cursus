@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:45:10 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/26 14:21:39 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/29 13:17:13 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
  */
 int	ft_safe_atoi(const char *str, int *error)
 {
-	long	result;
+	long	res;
 	int		positive;
 
 	positive = 1;
-	result = 0;
+	res = 0;
 	*error = 0;
 	while ((*str >= 9 && *str <= 13) || *str == 32)
 		str++;
@@ -34,15 +34,14 @@ int	ft_safe_atoi(const char *str, int *error)
 	}
 	while (*str >= '0' && *str <= '9')
 	{
-		result = result * 10 + (*str - '0');
-		if ((result * positive) > 2147483647 || (result * positive) <
-			-2147483648)
+		res = res * 10 + (*str - '0');
+		if ((res * positive) > 2147483647 || ((res * positive) < -2147483648))
 			return (*error = 1, 0);
 		str++;
 	}
 	if (*str != '\0')
 		*error = 1;
-	return ((int)(result * positive));
+	return ((int)(res * positive));
 }
 
 int	is_integer(const char *str)
