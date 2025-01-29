@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:29:31 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/29 11:40:21 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/29 18:06:48 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ int	find_nln(t_stack *stack, t_stack *target_stack, int number_index)
 	int	nln_index;
 
 	i = target_stack->top;
-	nln = 0;
 	nln_index = -1;
 	while (i >= 0)
 	{
@@ -103,7 +102,6 @@ int	find_nbn(t_stack *stack, t_stack *target_stack, int number_index)
 	int	nbn_index;
 
 	i = target_stack->top;
-	nbn = 0;
 	nbn_index = -1;
 	while (i >= 0)
 	{

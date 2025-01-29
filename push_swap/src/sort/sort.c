@@ -6,11 +6,22 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:52:35 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/29 14:51:51 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/29 18:39:13 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+int	get_rotation_times(t_stack *stack, t_pair indexes)
+{
+	int	times;
+
+	if (indexes.item + 1 > stack->top - indexes.item)
+		times = stack->top - indexes.item;
+	else
+		times = indexes.item + 1;
+	return (times);
+}
 
 /**
  * Rotates original stack and target stack in order to bring items
@@ -23,10 +34,8 @@ void	sort_item(t_stack *original_stack, t_stack *target_stack,
 {
 	int	times;
 
-	if (indexes.item + 1 > original_stack->top - indexes.item)
-		times = original_stack->top - indexes.item;
-	else
-		times = indexes.item + 1;
+	times = get_rotation_times(original_stack, indexes);
+	printf("Times: %d\n", times);
 	if (steps_to_top(original_stack, indexes.item) == steps_to_top(target_stack,
 			indexes.target))
 	{
@@ -88,11 +97,20 @@ void	sort_to_stack_a(t_stack *stack_a, t_stack *stack_b)
 
 	while (stack_b->top != -1)
 	{
+		print_stacks(stack_a, stack_b);
 		pair.item = stack_b->top;
 		if (find_nbn(stack_b, stack_a, stack_b->top) == -1)
+		{
 			pair.target = get_min(stack_a);
+			printf("aaa");
+		}
 		else
+		{
 			pair.target = find_nbn(stack_b, stack_a, stack_b->top);
+			printf("bbb");
+		}
+		printf("For number %d found %d\n", stack_b->data[stack_b->top],
+			stack_a->data[pair.target]);
 		sort_item(stack_b, stack_a, pair, 1);
 		pa(stack_a, stack_b);
 	}
@@ -124,7 +142,7 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 		ra(stack_a);
 	else if (stack_a->top == 2)
 		sort_stack_a(stack_a);
-	else
+	else if (!is_sorted(stack_a))
 	{
 		pb(stack_a, stack_b);
 		pb(stack_a, stack_b);

@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:26:53 by dmalasek          #+#    #+#             */
-/*   Updated: 2025/01/21 20:26:16 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/01/29 17:41:26 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ size_t				ft_strlcpy(char *dest, const char *src, size_t size);
 char				*ft_strnstr(const char *big, const char *little,
 						size_t len);
 char				*ft_strrchr(const char *s, int c);
+int					ft_safe_atoi(const char *str, int *error);
 int					ft_tolower(int character);
 int					ft_toupper(int character);
 int					ft_atoi(const char *str);
