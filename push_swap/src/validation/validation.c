@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 12:34:35 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/02/01 13:25:00 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/02/01 14:08:48 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	check_input(int argc, char **argv)
 	char	**memory;
 
 	if (argc == 1)
-		throw_error(NULL, 0);
+		return ;
 	memory = allocate_and_validate_memory(argc);
 	process_arguments(argc, argv, memory);
 }
