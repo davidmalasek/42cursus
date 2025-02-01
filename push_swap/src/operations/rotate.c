@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_operations.c                                :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:05:07 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/27 10:34:45 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/02/01 13:13:19 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	rb(t_stack *stack_b)
 /**
  * ra and rb at the same time.
  */
-// TODO: This will not works since ra and rb will print on their own.
 void	rr(t_stack *stack_a, t_stack *stack_b)
 {
 	rotate(stack_a);

@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:28:46 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/29 14:44:09 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/02/01 13:20:20 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ int	get_steps(t_stack *stack_a, t_stack *stack_b, int index_a, int index_b)
 	return (current_cheapest_num_of_steps + 1);
 }
 
+/**
+ * Returns index of cheapest position in stack_b to place item from stack_a.
+ */
 int	calculate_target_position(t_stack *stack_a, t_stack *stack_b, int index)
 {
 	if (stack_a->data[index] > stack_b->data[get_max(stack_b)]

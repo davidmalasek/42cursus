@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:41:01 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/29 13:53:30 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/02/01 13:17:05 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,6 @@ typedef struct s_pair
 int		is_integer(const char *str);
 int		ft_safe_atoi(const char *str, int *error);
 
-// Helper
-void	print_stack(t_stack *stack, const char *label);
-void	print_stacks(t_stack *stack_a, t_stack *stack_b);
-
 // Sort
 void	sort(t_stack *stack_a, t_stack *stack_b);
 
@@ -48,6 +44,11 @@ void	sort(t_stack *stack_a, t_stack *stack_b);
 void	repeat_for_stack(void (*f)(t_stack *stack), t_stack *stack, int times);
 void	repeat_for_stacks(void (*f)(t_stack *stack_a, t_stack *stack_b),
 			t_stack *stack_a, t_stack *stack_b, int times);
+void	handle_rotations_for_original_stack(t_stack *original_stack,
+			t_pair indexes, int reverse);
+void	handle_rotations_for_target_stack(t_stack *target_stack, t_pair indexes,
+			int reverse);
+int		get_rotation_times(t_stack *stack, t_pair indexes);
 
 // Calculate
 t_pair	calculate(t_stack *stack_a, t_stack *stack_b);

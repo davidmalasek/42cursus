@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:29:31 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/29 18:06:48 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/02/01 13:19:41 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,10 @@ int	steps_to_top(t_stack *stack, int item_index)
 	else
 		return (item_index + 1);
 }
-
+/**
+ * Finds nearest lower number in target stack
+ * (relative to number at top of stack).
+ */
 int	find_nln(t_stack *stack, t_stack *target_stack, int number_index)
 {
 	int	i;
@@ -94,7 +97,10 @@ int	find_nln(t_stack *stack, t_stack *target_stack, int number_index)
 	}
 	return (nln_index);
 }
-
+/**
+ * Finds nearest bigger number in target stack
+ * (relative to number at top of stack).
+ */
 int	find_nbn(t_stack *stack, t_stack *target_stack, int number_index)
 {
 	int	i;

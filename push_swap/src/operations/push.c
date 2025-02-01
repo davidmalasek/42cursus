@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_operations.c                                  :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:04:13 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/27 10:33:18 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/02/01 13:18:46 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	pa(t_stack *stack_a, t_stack *stack_b)
  * Takes the first element at the top of a and puts it at the top of b.
  * Does nothing if a is empty.
  */
-// TODO: consider rotating the arguments order
 void	pb(t_stack *stack_a, t_stack *stack_b)
 {
 	if (is_empty(stack_a))

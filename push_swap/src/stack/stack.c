@@ -6,12 +6,15 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 12:14:14 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/29 13:15:45 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/02/01 13:23:19 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
+/**
+ * Initializes empty stack.
+ */
 t_stack	*create_stack(int capacity)
 {
 	t_stack	*stack;
@@ -23,6 +26,9 @@ t_stack	*create_stack(int capacity)
 	return (stack);
 }
 
+/**
+ * Pushes an item to the top of stack.
+ */
 void	push_to_stack(t_stack *stack, int value)
 {
 	if (is_full(stack))
@@ -31,6 +37,9 @@ void	push_to_stack(t_stack *stack, int value)
 	stack->data[stack->top] = value;
 }
 
+/**
+ * Removes an item from the top of stack.
+ */
 int	pop(t_stack *stack)
 {
 	if (is_empty(stack))
@@ -56,6 +65,9 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
+/**
+ * Frees allocated memory related to stack_a and stack_b.
+ */
 void	free_stacks(t_stack *stack_a, t_stack *stack_b)
 {
 	free(stack_a->data);
