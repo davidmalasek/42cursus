@@ -6,7 +6,7 @@
 /*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:31:40 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/26 12:04:22 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/02/01 13:55:56 by davidmalase      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,6 @@ void	handle_signal(int signal)
 	static int	bit_index;
 	static char	current_char;
 
-	bit_index = 0;
-	current_char = 0;
 	if (signal == SIGUSR1)
 		current_char |= (1 << (7 - bit_index));
 	bit_index++;
