@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+         #
+#    By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 16:14:47 by dmalasek          #+#    #+#              #
-#    Updated: 2025/02/01 13:16:58 by davidmalase      ###   ########.fr        #
+#    Updated: 2025/02/02 13:59:03 by dmalasek         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

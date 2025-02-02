@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:41:01 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/02/01 13:17:05 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/02/02 13:57:25 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct s_pair
 
 // Utils
 int		is_integer(const char *str);
-int		ft_safe_atoi(const char *str, int *error);
 
 // Sort
 void	sort(t_stack *stack_a, t_stack *stack_b);
