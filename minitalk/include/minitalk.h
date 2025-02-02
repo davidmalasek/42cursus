@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:53:38 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/01/24 15:16:43 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/02/02 16:18:57 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ int			ft_atoi(const char *str);
 double		ft_power(double base, int exp);
 char		*ft_strchr(const char *string, int character);
 char		*ft_strcpy(char *dest, char *src);
+char		binary_to_character(char *string);
 
 #endif

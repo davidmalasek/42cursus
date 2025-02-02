@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:20:16 by dmalasek          #+#    #+#             */
-/*   Updated: 2025/01/24 15:02:15 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/02/02 16:18:44 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,22 +45,6 @@ double	ft_power(double base, int exp)
 	return (base * ft_power(base, exp - 1));
 }
 
-char	*ft_strchr(const char *string, int character)
-{
-	unsigned char	unsigned_char;
-
-	unsigned_char = (unsigned char)character;
-	while (*string)
-	{
-		if ((unsigned char)*string == unsigned_char)
-			return ((char *)string);
-		string++;
-	}
-	if (unsigned_char == '\0')
-		return ((char *)string);
-	return (NULL);
-}
-
 char	*ft_strcpy(char *dest, char *src)
 {
 	int	index;
@@ -73,4 +57,22 @@ char	*ft_strcpy(char *dest, char *src)
 	}
 	dest[index] = '\0';
 	return (dest);
+}
+
+/**
+ * Converts 8 characters (~ 8 bits) into character according to ASCII.
+ */
+char	binary_to_character(char *string)
+{
+	int	i;
+	int	ascii;
+
+	ascii = 0;
+	i = 0;
+	while (i < 8)
+	{
+		ascii += (string[i] - '0') * ft_power(2, 7 - i);
+		i++;
+	}
+	return ((char)ascii);
 }

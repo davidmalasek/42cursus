@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:31:37 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/02/01 13:59:12 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/02/02 15:39:10 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	send_string(pid_t pid, char *string)
 			}
 			else if (kill(pid, SIGUSR2) == -1)
 				failed_kill(binary);
-			usleep(200);
+			usleep(350);
 			i++;
 		}
 		free(binary);
