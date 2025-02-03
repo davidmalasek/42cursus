@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:31:40 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/02/02 16:27:41 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/02/03 13:32:22 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ void	sigint_handler(int sig)
 	(void)sig;
 	if (g_buffer != NULL)
 	{
-		if (g_buffer->data)
-			free(g_buffer->data);
+		free(g_buffer->data);
 		free(g_buffer);
 		g_buffer = NULL;
 	}
@@ -36,13 +35,14 @@ void	init_buffer(void)
 	if (!g_buffer)
 	{
 		write(2, "Memory allocation failed\n", 25);
-		exit(1);
+		exit(0);
 	}
 	g_buffer->data = (char *)malloc(1025);
 	if (!g_buffer->data)
 	{
 		write(2, "Memory allocation failed\n", 25);
-		exit(1);
+		free(g_buffer->data);
+		exit(0);
 	}
 	g_buffer->size = 1025;
 	g_buffer->data[0] = '\0';
@@ -66,7 +66,9 @@ void	handle_buffer(void)
 		if (!new_data)
 		{
 			write(2, "Memory allocation failed\n", 25);
-			exit(1);
+			free(g_buffer->data);
+			free(g_buffer);
+			exit(0);
 		}
 		ft_strcpy(new_data, g_buffer->data);
 		free(g_buffer->data);
