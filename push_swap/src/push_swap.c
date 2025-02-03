@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidmalasek <davidmalasek@student.42.f    +#+  +:+       +#+        */
+/*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:03:57 by dmalasek          #+#    #+#             */
-/*   Updated: 2025/02/01 13:25:07 by davidmalase      ###   ########.fr       */
+/*   Updated: 2025/02/03 10:16:24 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,3 @@ int	main(int argc, char **argv)
 	sort(stack_a, stack_b);
 	free_stacks(stack_a, stack_b);
 }
-
-/*
-TODO:
-- valgrind
-*/
