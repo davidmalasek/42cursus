@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:31:37 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/02/02 15:39:10 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/02/21 15:31:43 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	send_string(pid_t pid, char *string)
 			}
 			else if (kill(pid, SIGUSR2) == -1)
 				failed_kill(binary);
-			usleep(350);
+			usleep(300);
 			i++;
 		}
 		free(binary);
@@ -85,10 +85,7 @@ void	send_string(pid_t pid, char *string)
 int	main(int argc, char *argv[])
 {
 	if (argc == 3)
-	{
 		send_string(ft_atoi(argv[1]), argv[2]);
-		send_string(ft_atoi(argv[1]), "\0");
-	}
 	else
 	{
 		ft_printf("Error: this program expects 2 arguments\n");

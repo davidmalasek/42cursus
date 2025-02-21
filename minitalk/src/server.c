@@ -6,7 +6,7 @@
 /*   By: dmalasek <dmalasek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:31:40 by davidmalase       #+#    #+#             */
-/*   Updated: 2025/02/03 13:32:22 by dmalasek         ###   ########.fr       */
+/*   Updated: 2025/02/21 15:31:10 by dmalasek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	handle_signal(int signal)
 {
 	static int	bit_index;
 	static char	current_char;
+	int			len;
 
 	if (!g_buffer)
 		init_buffer();
@@ -89,13 +90,12 @@ void	handle_signal(int signal)
 	bit_index++;
 	if (bit_index == 8)
 	{
-		if (ft_strlen(g_buffer->data) + 2 >= (size_t)(g_buffer->size))
-			handle_buffer();
-		g_buffer->data[ft_strlen(g_buffer->data)] = current_char;
-		g_buffer->data[ft_strlen(g_buffer->data) + 1] = '\0';
+		len = ft_strlen(g_buffer->data);
+		g_buffer->data[len] = current_char;
+		g_buffer->data[len + 1] = '\0';
 		if (current_char == '\0')
 		{
-			write(1, g_buffer->data, ft_strlen(g_buffer->data));
+			write(1, g_buffer->data, len);
 			free(g_buffer->data);
 			free(g_buffer);
 			g_buffer = NULL;
@@ -112,5 +112,5 @@ int	main(void)
 	signal(SIGUSR2, handle_signal);
 	signal(SIGINT, sigint_handler);
 	while (1)
-		pause();
+		usleep(300);
 }
